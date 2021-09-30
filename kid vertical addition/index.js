@@ -53,3 +53,34 @@
 //     console.log("This prints to the console when you Run Tests");
 //     return "Hello, " + name;
 // }
+
+function addVer(num1, num2) {
+    const num1Arr = num1.toString().split('');
+    const num2Arr = num2.toString().split('');
+    const final = [];
+
+    while (num1Arr.length || num2Arr.length) {
+        let sum = 0;
+        let n1 = num1Arr.pop();
+        let n2 = num2Arr.pop();
+
+        if (n1 === undefined) {
+            n1 = 0;
+        }
+        if (n2 === undefined) {
+            n2 = 0;
+        }
+
+        sum += eval(`${n1} + ${n2}`);
+        if (sum >= 10) {
+            sum -= 10;
+        }
+
+        final.push(sum);
+    }
+    final.reverse().join('');
+    // parseInt(final);
+    console.log(final);
+}
+
+addVer(456, 1730);
