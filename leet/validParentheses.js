@@ -58,65 +58,78 @@ C:
 */
 
 var isValid = function (s) {
-    const pairs = {
-        '(': ')',
-        '{': '}',
-        '[': ']',
-    };
+    // const recursiveFunction = (ele) => {
+    // const firstLetter = ele;
+    // const indexOfNext = strArr.indexOf(ele) + 1;
+    // const nextLetter = strArr[indexOfNext];
+    // const thirdLetter = strArr[indexOfNext + 1];
 
-    const strArr = s.split('');
+    // console.log(`first letter: ${firstLetter}`);
+    // console.log(`second letter: ${nextLetter}`);
 
-    const recursiveFunction = (ele) => {
-        const firstLetter = ele;
-        const indexOfNext = strArr.indexOf(ele) + 1;
-        const nextLetter = strArr[indexOfNext];
-        const thirdLetter = strArr[indexOfNext + 1];
+    //is the first letter an opening?
 
-        console.log(`first letter: ${firstLetter}`);
-        console.log(`second letter: ${nextLetter}`);
+    // if (pairs[firstLetter] === nextLetter) {
+    //     if (typeof thirdLetter === 'undefined') {
+    //         return true;
+    //     } else {
+    //         if (recursiveFunction(thirdLetter)) {
+    //             return true;
+    //         }
+    //     }
+    // } else {
+    //     if (typeof pairs[firstLetter] !== 'undefined') {
+    //         recursiveFunction(nextLetter);
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
-        // is the first letter an opening?
+    //     if (typeof pairs[firstLetter] === 'undefined') return false;
+    //     if (pairs[firstLetter] === nextLetter) {
+    //         //check if there is a next one and if its an opening
+    //         if (typeof thirdLetter === 'undefined') {
+    //             return true;
+    //         } else {
+    //             recursiveFunction(thirdLetter);
+    //         }
+    //     } else {
+    //         // if the next letter an opening
+    //         if (typeof pairs[firstLetter] === undefined) {
+    //             return false;
+    //         } else {
+    //             console.log('this got triggered');
+    //             recursiveFunction(nextLetter);
+    //         }
+    //     }
+    // };
 
-        if (pairs[firstLetter] === nextLetter) {
-            if (typeof thirdLetter === 'undefined') {
-                return true;
-            } else {
-                if (recursiveFunction(thirdLetter)) {
-                    return true;
-                }
-            }
+    // if (strArr.length % 2 !== 0) {
+    //     return false;
+    // } else {
+    //     recursiveFunction(strArr[0]);
+    // }
+
+    const stack = [];
+    const openSet = new Set(['(', '{', '[']);
+    const closeOpenMap = new Map([
+        [')', '('],
+        ['}', '{'],
+        [']', '['],
+    ]);
+
+    for (let i = 0; i < s.length; i += 1) {
+        if (openSet.has(s[i])) {
+            stack.push(s[i]);
         } else {
-            if (typeof pairs[firstLetter] !== 'undefined') {
-                recursiveFunction(nextLetter);
-            } else {
+            const pop = stack.pop();
+            if (pop !== closeOpenMap.get(s[i])) {
                 return false;
             }
         }
-
-        if (typeof pairs[firstLetter] === 'undefined') return false;
-        if (pairs[firstLetter] === nextLetter) {
-            //check if there is a next one and if its an opening
-            if (typeof thirdLetter === 'undefined') {
-                return true;
-            } else {
-                recursiveFunction(thirdLetter);
-            }
-        } else {
-            // if the next letter an opening
-            if (typeof pairs[firstLetter] === undefined) {
-                return false;
-            } else {
-                console.log('this got triggered');
-                recursiveFunction(nextLetter);
-            }
-        }
-    };
-
-    if (strArr.length % 2 !== 0) {
-        return false;
-    } else {
-        recursiveFunction(strArr[0]);
     }
+
+    return stack.length === 0;
 };
 
 const stringKol = '{[]()}';
