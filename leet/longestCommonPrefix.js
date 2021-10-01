@@ -40,6 +40,30 @@
 var longestCommonPrefix = function (strs) {
     let finalAnswer = '';
     let currentLetter = '';
+
+    if (strs.length === 0) {
+        return finalAnswer;
+    } else {
+        const letterArr = new Array(strs.length)
+            .fill('filter')
+            .map((ele, idx) => {
+                return strs[idx].split('');
+            });
+
+        currentLetter = letterArr[0][0];
+
+        while (typeof letterArr !== 'undefined') {
+            const toggle = letterArr.every((ele) => ele[0] === currentLetter);
+            if (toggle) {
+                finalAnswer += currentLetter;
+                currentLetter = letterArr[0][1];
+                letterArr.forEach((ele) => ele.shift());
+            } else {
+                break;
+            }
+        }
+    }
+    return finalAnswer;
 };
 
 const strs = ['flower', 'flow', 'floght', 'flosh', 'floe'];
