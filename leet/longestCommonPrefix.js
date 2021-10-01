@@ -66,6 +66,6 @@ var longestCommonPrefix = function (strs) {
     return finalAnswer;
 };
 
-const strs = ['flower', 'flow', 'floght', 'flosh', 'floe'];
+const strs = ['flower', 'flow', 'floght', 'flosh', 'floe', 'float'];
 
 longestCommonPrefix(strs);
