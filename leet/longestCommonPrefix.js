@@ -37,3 +37,11 @@
 
 
 */
+var longestCommonPrefix = function (strs) {
+    let finalAnswer = '';
+    let currentLetter = '';
+};
+
+const strs = ['flower', 'flow', 'floght', 'flosh', 'floe'];
+
+longestCommonPrefix(strs);
