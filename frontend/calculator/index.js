@@ -21,15 +21,23 @@ class App extends Component {
         this.setState({ data: '' });
     };
 
+    handleCalculation = () => {
+        const { data } = this.state;
+        const finalResult = eval(data);
+        this.setState({ data: finalResult });
+    };
+
     handleCheck = () => {
         const { data } = this.state;
         console.log(data);
     };
 
     render() {
+        const { data } = this.state;
+
         return (
             <div>
-                <h3>Result: </h3>
+                <h3>Result: {data}</h3>
                 <div>
                     <button onClick={this.handleClick} value='1'>
                         1
@@ -81,7 +89,7 @@ class App extends Component {
                     </button>
                 </div>
                 <div>
-                    <button onClick={this.handleCheck} value='equal'>
+                    <button onClick={this.handleCalculation} value='equal'>
                         =
                     </button>
                     <button onClick={this.handleClear} value='clear'>
