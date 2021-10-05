@@ -29870,31 +29870,48 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
     this.state = {
       data: ''
     };
-  }
+  } // handleClick = (e) => {
+  //     const value = e.target.getAttribute('value');
+  //     let { data } = this.state;
+  //     data += value;
+  //     this.setState({ data });
+  // };
+  // handleClear = () => {
+  //     this.setState({ data: '' });
+  // };
+  // handleCalculation = () => {
+  //     const { data } = this.state;
+  //     const finalResult = eval(data);
+  //     this.setState({ data: finalResult });
+  // };
+
 
   handleClick = e => {
     const value = e.target.getAttribute('value');
     let {
       data
     } = this.state;
-    data += value;
-    this.setState({
-      data
-    });
-  };
-  handleClear = () => {
-    this.setState({
-      data: ''
-    });
-  };
-  handleCalculation = () => {
-    const {
-      data
-    } = this.state;
-    const finalResult = eval(data);
-    this.setState({
-      data: finalResult
-    });
+
+    switch (value) {
+      case 'clear':
+        this.setState({
+          data: ''
+        });
+        break;
+
+      case 'equal':
+        const finalResult = eval(data);
+        this.setState({
+          data: finalResult
+        });
+        break;
+
+      default:
+        data += value;
+        this.setState({
+          data
+        });
+    }
   };
   handleCheck = () => {
     const {
@@ -29950,10 +29967,10 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       onClick: this.handleClick,
       value: "/"
     }, "/")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-      onClick: this.handleCalculation,
+      onClick: this.handleClick,
       value: "equal"
     }, "="), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-      onClick: this.handleClear,
+      onClick: this.handleClick,
       value: "clear"
     }, "C")));
   }

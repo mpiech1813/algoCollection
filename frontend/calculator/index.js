@@ -9,22 +9,40 @@ class App extends Component {
         };
     }
 
+    // handleClick = (e) => {
+    //     const value = e.target.getAttribute('value');
+    //     let { data } = this.state;
+
+    //     data += value;
+    //     this.setState({ data });
+    // };
+
+    // handleClear = () => {
+    //     this.setState({ data: '' });
+    // };
+
+    // handleCalculation = () => {
+    //     const { data } = this.state;
+    //     const finalResult = eval(data);
+    //     this.setState({ data: finalResult });
+    // };
+
     handleClick = (e) => {
         const value = e.target.getAttribute('value');
         let { data } = this.state;
 
-        data += value;
-        this.setState({ data });
-    };
-
-    handleClear = () => {
-        this.setState({ data: '' });
-    };
-
-    handleCalculation = () => {
-        const { data } = this.state;
-        const finalResult = eval(data);
-        this.setState({ data: finalResult });
+        switch (value) {
+            case 'clear':
+                this.setState({ data: '' });
+                break;
+            case 'equal':
+                const finalResult = eval(data);
+                this.setState({ data: finalResult });
+                break;
+            default:
+                data += value;
+                this.setState({ data });
+        }
     };
 
     handleCheck = () => {
@@ -89,10 +107,10 @@ class App extends Component {
                     </button>
                 </div>
                 <div>
-                    <button onClick={this.handleCalculation} value='equal'>
+                    <button onClick={this.handleClick} value='equal'>
                         =
                     </button>
-                    <button onClick={this.handleClear} value='clear'>
+                    <button onClick={this.handleClick} value='clear'>
                         C
                     </button>
                 </div>
