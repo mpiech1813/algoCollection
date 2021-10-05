@@ -9,12 +9,20 @@ class Clicker extends Component {
         };
     }
 
+    onClick = () => {
+        let counter = this.state.counter;
+        counter++;
+        this.setState({ counter });
+    };
+
     render() {
         const { counter } = this.state;
+        const { onClick } = this;
 
         return (
             <div>
-                <h1>Hello from the Component</h1>
+                <h1>Number of clicks: {counter}</h1>
+                <button onClick={() => onClick()}>Click Me!</button>
             </div>
         );
     }
