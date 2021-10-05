@@ -6,6 +6,14 @@ class App extends Component {
         super();
         this.state = {};
     }
+
+    render() {
+        return (
+            <div>
+                <h1>Hello from this container</h1>
+            </div>
+        );
+    }
 }
 
 const root = document.getElementById('app');
