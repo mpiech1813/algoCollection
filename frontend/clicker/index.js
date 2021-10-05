@@ -12,6 +12,14 @@ class Clicker extends Component {
     render() {
         const { counter } = this.state;
 
-        return <div></div>;
+        return (
+            <div>
+                <h1>Hello from the Component</h1>
+            </div>
+        );
     }
 }
+
+const app = document.getElementById('app');
+
+ReactDOM.render(<Clicker />, app);
