@@ -16,30 +16,30 @@ class App extends Component {
             <div>
                 <h1>Display: {display}</h1>
                 <div>
-                    <button onClick={} value='1'>1</button>
-                    <button onClick={} value='2'>2</button>
-                    <button onClick={} value='3'>3</button>
+                    <button value='1'>1</button>
+                    <button value='2'>2</button>
+                    <button value='3'>3</button>
                 </div>
                 <div>
-                    <button onClick={} value='4'>4</button>
-                    <button onClick={} value='5'>5</button>
-                    <button onClick={} value='6'>6</button>
+                    <button value='4'>4</button>
+                    <button value='5'>5</button>
+                    <button value='6'>6</button>
                 </div>
                 <div>
-                    <button onClick={} value='7'>7</button>
-                    <button onClick={} value='8'>8</button>
-                    <button onClick={} value='9'>9</button>
+                    <button value='7'>7</button>
+                    <button value='8'>8</button>
+                    <button value='9'>9</button>
                 </div>
                 <div>
-                    <button onClick={} value='0'></button>
-                    <button onClick={} value='equal'>=</button>
-                    <button onClick={} value='clear'>C</button>
+                    <button value='0'></button>
+                    <button value='equal'>=</button>
+                    <button value='clear'>C</button>
                 </div>
                 <div>
-                    <button onClick={} value='+'>+</button>
-                    <button onClick={} value='-'>-</button>
-                    <button onClick={} value='*'>*</button>
-                    <button onClick={} value='/'>/</button>
+                    <button value='+'>+</button>
+                    <button value='-'>-</button>
+                    <button value='*'>*</button>
+                    <button value='/'>/</button>
                 </div>
             </div>
         );
