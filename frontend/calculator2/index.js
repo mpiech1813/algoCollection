@@ -9,9 +9,28 @@ class App extends Component {
         };
     }
 
+    handleCalc = () => {
+        const { display } = this.state;
+        const calcResult = eval(display);
+        this.setState({ display: calcResult });
+    };
+
     handleClick = (e) => {
         const val = e.target.getAttribute('value');
-        console.log(val);
+        let { display } = this.state;
+
+        switch (val) {
+            case 'clear':
+                display = '';
+                this.setState({ display });
+                break;
+            case 'equal':
+                this.handleCalc();
+                break;
+            default:
+                display += val;
+                this.setState({ display });
+        }
     };
 
     render() {
