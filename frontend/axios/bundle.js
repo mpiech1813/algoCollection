@@ -32063,9 +32063,12 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {
       let {
         pokemons
       } = this.state;
-      const pokemonList = (await axios__WEBPACK_IMPORTED_MODULE_2___default().get('https://pokeapi.co/api/v2/pokemon')).data;
-      console.log(pokemonList); // pokemons = pokemonList.results;
-      // this.setState({ pokemons });
+      const pokemonList = (await axios__WEBPACK_IMPORTED_MODULE_2___default().get('https://pokeapi.co/api/v2/pokemon')).data; // console.log(pokemonList.results);
+
+      pokemons = pokemonList.results;
+      this.setState({
+        pokemons
+      });
     } catch (error) {
       console.log('error occured in componentDidMount: ' + error);
     }
