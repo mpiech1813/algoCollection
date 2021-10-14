@@ -15,8 +15,8 @@ class App extends Component {
                 await axios.get('https://pokeapi.co/api/v2/pokemon')
             ).data;
             console.log(pokemonList);
-            // pokemons = pokemonList.results;
-            // this.setState({ pokemons });
+            pokemons = pokemonList.results;
+            this.setState({ pokemons });
         } catch (error) {
             console.log('error occured in componentDidMount: ' + error);
         }
