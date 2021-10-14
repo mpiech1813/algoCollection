@@ -27,11 +27,11 @@ class App extends Component {
         return (
             <div>
                 <h3>Hello I am working</h3>
-                {/* <ul>
+                <ul>
                     {pokemons.map((ele, idx) => {
                         return <li key={idx}>{ele.name}</li>;
                     })}
-                </ul> */}
+                </ul>
             </div>
         );
     }
