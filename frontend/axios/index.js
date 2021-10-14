@@ -5,7 +5,21 @@ import axios from 'axios';
 class App extends Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = { pokemons: [] };
+    }
+
+    async componentDidMount() {
+        try {
+            let { pokemons } = this.state;
+            const pokemonList = (
+                await axios.get('https://pokeapi.co/api/v2/pokemon')
+            ).data;
+            console.log(pokemonList);
+            // pokemons = pokemonList.results;
+            // this.setState({ pokemons });
+        } catch (error) {
+            console.log('error occured in componentDidMount: ' + error);
+        }
     }
 
     render() {
@@ -13,11 +27,11 @@ class App extends Component {
         return (
             <div>
                 <h3>Hello I am working</h3>
-                {/* <ul>
+                <ul>
                     {pokemons.map((ele, idx) => {
                         return <li key={idx}>{ele.name}</li>;
                     })}
-                </ul> */}
+                </ul>
             </div>
         );
     }
