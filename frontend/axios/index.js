@@ -15,8 +15,8 @@ class App extends Component {
                 await axios.get('https://pokeapi.co/api/v2/pokemon')
             ).data;
             console.log(pokemonList);
-            pokemons = pokemonList.results;
-            this.setState({ pokemons });
+            // pokemons = pokemonList.results;
+            // this.setState({ pokemons });
         } catch (error) {
             console.log('error occured in componentDidMount: ' + error);
         }
@@ -27,16 +27,16 @@ class App extends Component {
         return (
             <div>
                 <h3>Hello I am working</h3>
-                <ul>
+                {/* <ul>
                     {pokemons.map((ele, idx) => {
                         return <li key={idx}>{ele.name}</li>;
                     })}
-                </ul>
+                </ul> */}
             </div>
         );
     }
 }
 
-const root = document.getElementById('root');
+const root = document.getElementById('app');
 
 ReactDOM.render(<App />, root);
