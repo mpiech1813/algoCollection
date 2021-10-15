@@ -13,7 +13,8 @@ class App extends Component {
             const pokeList = (
                 await axios.get('https://pokeapi.co/api/v2/pokemon')
             ).data;
-            this.setState({ pokemon: pokeList });
+            console.log(pokeList.results);
+            this.setState({ pokemon: pokeList.results });
         } catch (error) {
             next(error);
         }
@@ -21,15 +22,15 @@ class App extends Component {
 
     render() {
         const { pokemon } = this.state;
-        const getPokemon = this;
+        // const getPokemon = this;
 
         return (
             <div>
                 <h1>Click the butto to show the list</h1>
-                <button onClick={getPokemon}>Get the list</button>
+                <button onClick={() => this.getPokemon()}>Get the list</button>
                 <ul>
                     {pokemon.map((ele, idx) => {
-                        return <li>{ele}</li>;
+                        return <li key={idx}>{ele.name}</li>;
                     })}
                 </ul>
             </div>
