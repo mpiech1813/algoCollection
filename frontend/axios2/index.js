@@ -8,7 +8,7 @@ class App extends Component {
         this.state = { pokemon: [] };
     }
 
-    getPokemon = () => {
+    getPokemon = async () => {
         try {
             const pokeList = (
                 await axios.get('https://pokeapi.co/api/v2/pokemon')
