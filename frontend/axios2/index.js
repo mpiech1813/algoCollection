@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 class App extends Component {
     constructor() {
@@ -7,10 +8,13 @@ class App extends Component {
         this.state = {};
     }
 
+    getPokemon = () => {};
+
     render() {
         return (
             <div>
                 <h1>Hello World</h1>
+                <button>Get the list</button>
             </div>
         );
     }
