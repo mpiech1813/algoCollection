@@ -20,12 +20,18 @@ class App extends Component {
     };
 
     render() {
+        const { pokemon } = this.state;
         const getPokemon = this;
 
         return (
             <div>
-                <h1>Hello World</h1>
+                <h1>Click the butto to show the list</h1>
                 <button onClick={getPokemon}>Get the list</button>
+                <ul>
+                    {pokemon.map((ele, idx) => {
+                        return <li>{ele}</li>;
+                    })}
+                </ul>
             </div>
         );
     }
