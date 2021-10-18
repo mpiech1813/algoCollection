@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 class App extends Component {
     constructor() {
@@ -11,6 +12,7 @@ class App extends Component {
         return (
             <div>
                 <h1>hello from the Component</h1>
+                <button>Click Me!</button>
             </div>
         );
     }
