@@ -9,17 +9,15 @@ class App extends Component {
         this.state = { pokeList: [] };
     }
 
-    getList = async () => {
+    getList = () => {
         try {
             // const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
             //     .data;
-            const longList = await entireList(
-                'https://pokeapi.co/api/v2/pokemon'
-            );
-            // console.log('the long list is: ', longList);
+            const longList = entireList('https://pokeapi.co/api/v2/pokemon');
+            console.log('the long list is: ', longList);
 
-            this.setState({ pokeList: longList });
-            console.log('the state is: ', this.state.pokeList);
+            // this.setState({ pokeList: longList });
+            // console.log('the state is: ', this.state.pokeList);
         } catch (error) {
             console.log(error);
         }
