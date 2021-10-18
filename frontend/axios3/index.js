@@ -11,12 +11,12 @@ class App extends Component {
 
     getList = async () => {
         try {
-            const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
-                .data;
-            console.log(list);
-            const longList = entireList(list);
+            // const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
+            //     .data;
+            // console.log(list);
+            const longList = entireList('https://pokeapi.co/api/v2/pokemon');
 
-            this.setState({ pokeList: longList });
+            // this.setState({ pokeList: longList });
         } catch (error) {
             console.log(error);
         }
