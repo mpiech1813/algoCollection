@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import entireList from './utils';
 
 class App extends Component {
     constructor() {
@@ -13,9 +14,11 @@ class App extends Component {
             const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
                 .data;
             console.log(list);
-            this.setState({ pokeList: list.results });
+            const longList = entireList(list);
+
+            this.setState({ pokeList: longList });
         } catch (error) {
-            next(error);
+            console.log(error);
         }
     };
 
