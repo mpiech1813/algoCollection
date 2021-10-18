@@ -20,7 +20,7 @@ class App extends Component {
     };
 
     render() {
-        const pokeList = this.state;
+        const { pokeList } = this.state;
 
         return (
             <div>
