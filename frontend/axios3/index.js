@@ -14,9 +14,9 @@ class App extends Component {
             // const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
             //     .data;
             const longList = entireList('https://pokeapi.co/api/v2/pokemon');
-            console.log('the long list is: ', longList);
+            // console.log('the long list is: ', longList);
 
-            // this.setState({ pokeList: longList });
+            this.setState({ pokeList: longList });
             // console.log('the state is: ', this.state.pokeList);
         } catch (error) {
             console.log(error);
@@ -25,15 +25,15 @@ class App extends Component {
 
     render() {
         const { pokeList } = this.state;
+        console.log('the state is', pokeList);
 
         return (
             <div>
                 <h1>hello from the Component</h1>
                 <button onClick={() => this.getList()}>Click Me!</button>
                 <ul>
-                    {pokeList.map((ele, idx) => {
-                        console.log(ele);
-                        return <li key={idx}>{ele}</li>;
+                    {pokeList.map((ele) => {
+                        console.log('ele is ', ele);
                     })}
                 </ul>
             </div>

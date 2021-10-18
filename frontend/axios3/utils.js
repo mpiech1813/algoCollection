@@ -10,14 +10,12 @@ const entireList = (link) => {
 
             // console.log('currentList is ', currentList);
 
-            // while (currentList.next !== null) {
-            //     work(currentList.next);
-            // }
+            // const pokeNames = currentResult.map((ele) => ele.name);
 
-            const pokeNames = currentResult.map((ele) => ele.name);
+            currentResult.forEach((ele) => totalList.push(ele.name));
 
             // console.log('pokenames are : ', pokeNames);
-            totalList.push(pokeNames);
+            // totalList.push(pokeNames);
 
             if (currentList.next !== null) {
                 work(currentList.next);
@@ -30,8 +28,8 @@ const entireList = (link) => {
 
     work(link);
 
-    // return totalList;
-    console.log('totalList is : ', totalList);
+    return totalList;
+    // console.log('totalList is : ', totalList);
 };
 
 module.exports = entireList;
