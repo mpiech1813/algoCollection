@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const entireList = async (link) => {
+const entireList = (link) => {
     const totalList = [];
 
     const work = async (link) => {
@@ -8,24 +8,29 @@ const entireList = async (link) => {
             const currentList = (await axios.get(`${link}`)).data;
             const currentResult = currentList.results;
 
-            while (currentList.next !== null) {
-                work(currentList.next);
-                currentResult.forEach((ele) => totalList.push(ele.name));
-            }
+            // console.log('currentList is ', currentList);
 
-            // console.log('totalList is: ', totalList);
-            // if (currentList.next !== null) {
+            // while (currentList.next !== null) {
             //     work(currentList.next);
-            // } else {
-            //     return totalList;
             // }
+
+            const pokeNames = currentResult.map((ele) => ele.name);
+
+            // console.log('pokenames are : ', pokeNames);
+            totalList.push(pokeNames);
+
+            if (currentList.next !== null) {
+                work(currentList.next);
+            }
         } catch (error) {
             console.log(error);
             next(error);
         }
     };
 
-    await work(link);
+    work(link);
+
+    // return totalList;
     console.log('totalList is : ', totalList);
 };
 
