@@ -1,3 +1,16 @@
+"name": "axios3",
+"version": "1.0.0",
+"main": "index.js",
+"scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "build":"webpack",
+  "build:dev":"webpack -w"
+},
+"keywords": [],
+"author": "",
+"license": "ISC",
+"description": ""
+}
 {
   "dependencies": {
     "react": "^17.0.2",
@@ -9,5 +22,4 @@
     "babel-loader": "^8.2.2",
     "webpack": "^5.58.2",
     "webpack-cli": "^4.9.1"
-  }
-}
+  },
