@@ -1,16 +1,23 @@
 const axios = require('axios');
 
-const entireList = (link) => {
-    console.log('list.next is', list);
-    const totalList = [];
-    const currentList = list.results;
+const entireList = async (link) => {
+    try {
+        const totalList = [];
+        const currentList = (
+            await axios.get('https://pokeapi.co/api/v2/pokemon')
+        ).data;
+        const currentResult = currentList.results;
+        console.log('current result is ', currentResult);
 
-    currentList.forEach((ele) => totalList.push(ele.name));
+        // currentList.forEach((ele) => totalList.push(ele.name));
 
-    if (list.next !== null) {
-        entireList(list.next);
+        // if (list.next !== null) {
+        //     entireList(list.next);
+        // }
+        // return totalList;
+    } catch (error) {
+        next(error);
     }
-    return totalList;
 };
 
 module.exports = entireList;
