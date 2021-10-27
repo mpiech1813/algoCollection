@@ -58,8 +58,14 @@ const buddyStrings = function (s, goal) {
     const sArr = s.split('');
     const goalArr = goal.split('');
 
-    console.log(`S Array is ${sArr}`);
-    console.log(`Goal Array is ${goalArr}`);
+    for (let i = 0; i < sArr.length - 1; i++) {
+        for (let j = i + 1; j < sArr.length; j++) {
+            let iLetter = sArr[i];
+            let jLetter = sArr[j];
+            console.log(`I Letter is ${iLetter}`);
+            console.log(`J Letter is ${jLetter}`);
+        }
+    }
 };
 
-buddyStrings('ab', 'ba');
+buddyStrings('abcdef', 'bacdef');
