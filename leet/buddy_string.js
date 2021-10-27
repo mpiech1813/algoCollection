@@ -53,3 +53,7 @@ Output: true
  * O: 
  * -----------------------------------------------------------------
  */
+
+const buddyStrings = function (s, goal) {};
+
+buddyStrings('ab', 'ba');
