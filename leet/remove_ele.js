@@ -52,3 +52,19 @@ It does not matter what you leave beyond the returned k (hence they are undersco
     return original arr
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
  */
+
+var removeElement = function (nums, val) {
+    nums.forEach((ele, idx) => {
+        // console.log(`element is ${ele}`);
+        // console.log(`index number of this ele is ${idx}`);
+        if (ele === val) {
+            nums.splice(idx, 1);
+        }
+    });
+    console.log('finall array: ', nums);
+};
+
+const nums = [3, 2, 2, 3];
+const nums2 = [0, 1, 2, 2, 3, 0, 4, 2];
+
+removeElement(nums2, 2);
