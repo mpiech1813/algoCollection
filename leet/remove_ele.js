@@ -54,14 +54,17 @@ It does not matter what you leave beyond the returned k (hence they are undersco
  */
 
 var removeElement = function (nums, val) {
-    nums.forEach((ele, idx) => {
+    for (let i = 0; i < nums.length; i++) {
         // console.log(`element is ${ele}`);
         // console.log(`index number of this ele is ${idx}`);
-        if (ele === val) {
-            nums.splice(idx, 1);
+        if (nums[i] === val) {
+            nums.splice(i, 1);
+            i--;
         }
-    });
-    console.log('finall array: ', nums);
+    }
+
+    // console.log('finall array: ', nums);
+    return nums;
 };
 
 const nums = [3, 2, 2, 3];
