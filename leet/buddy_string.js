@@ -62,8 +62,13 @@ const buddyStrings = function (s, goal) {
         for (let j = i + 1; j < sArr.length; j++) {
             let iLetter = sArr[i];
             let jLetter = sArr[j];
-            console.log(`I Letter is ${iLetter}`);
-            console.log(`J Letter is ${jLetter}`);
+            let tempArr = sArr;
+            // console.log(`I Letter is ${iLetter}`);
+            // console.log(`J Letter is ${jLetter}`);
+            tempArr[i] = jLetter;
+            tempArr[j] = iLetter;
+
+            console.log(tempArr);
         }
     }
 };
