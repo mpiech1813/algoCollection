@@ -54,6 +54,12 @@ Output: true
  * -----------------------------------------------------------------
  */
 
-const buddyStrings = function (s, goal) {};
+const buddyStrings = function (s, goal) {
+    const sArr = s.split('');
+    const goalArr = goal.split('');
+
+    console.log(`S Array is ${sArr}`);
+    console.log(`Goal Array is ${goalArr}`);
+};
 
 buddyStrings('ab', 'ba');
