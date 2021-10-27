@@ -36,6 +36,14 @@ Input: s = "aaaaaaabc", goal = "aaaaaaacb"
 Output: true
  * -----------------------------------------------------------------
  * A:
+ * 2 loops approach: (going to have a bad Big O)
+ *  convert string to array
+ *  for loop i loops through entire string from 0
+ *  for loop j loops through entire string from n+1
+ *  create a new array and flip letters from positions i <> j
+ *  **convert to string and then compare
+ *  **compare new array to the goal array (using filter)
+ *  return either true or false
  * -----------------------------------------------------------------
 
  * C: 
