@@ -70,4 +70,4 @@ var removeElement = function (nums, val) {
 const nums = [3, 2, 2, 3];
 const nums2 = [0, 1, 2, 2, 3, 0, 4, 2];
 
-removeElement(nums2, 2);
+console.log(removeElement(nums, 3));
