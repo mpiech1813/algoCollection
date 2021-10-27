@@ -54,21 +54,67 @@ Output: true
  * -----------------------------------------------------------------
  */
 
-const buddyStrings = function (s, goal) {
-    const sArr = s.split('');
-    const goalArr = goal.split('');
+// const buddyStrings = function (s, goal) {
+//     const sArr = s.split('');
+//     const goalArr = goal.split('');
 
-    for (let i = 0; i < sArr.length - 1; i++) {
-        for (let j = i + 1; j < sArr.length; j++) {
-            let iLetter = sArr[i];
-            let jLetter = sArr[j];
-            let tempArr = sArr;
-            // console.log(`I Letter is ${iLetter}`);
-            // console.log(`J Letter is ${jLetter}`);
-            tempArr[i] = jLetter;
-            tempArr[j] = iLetter;
+//     if (sArr.length !== goalArr.length) {
+//         return false;
+//     } else if (){}
 
-            console.log(tempArr);
+//     for (let i = 0; i < sArr.length - 1; i++) {
+//         for (let j = i + 1; j < sArr.length; j++) {
+//             let iLetter = sArr[i];
+//             let jLetter = sArr[j];
+//             let tempArr = sArr;
+//             // console.log(`I Letter is ${iLetter}`);
+//             // console.log(`J Letter is ${jLetter}`);
+//             tempArr[i] = jLetter;
+//             tempArr[j] = iLetter;
+
+//             console.log(tempArr);
+//         }
+//     }
+// };
+
+var buddyStrings = function (s, goal) {
+    let diffIndices = [];
+    if (s.length !== goal.length) {
+        return false;
+    } else if (s === goal) {
+        let seen = [];
+        let find;
+        for (let i = 0; i < s.length; i++) {
+            if (seen.findIndex((element) => element === s[i]) !== -1) {
+                find = true;
+            }
+            seen.push(s[i]);
+        }
+        if (find) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] !== goal[i]) {
+                diffIndices.push(i);
+            }
+            if (diffIndices.length > 2) {
+                return false;
+            }
+        }
+        if (diffIndices.length !== 2) {
+            return false;
+        } else {
+            if (
+                s[diffIndices[0]] === goal[diffIndices[1]] &&
+                s[diffIndices[1]] === goal[diffIndices[0]]
+            ) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 };
