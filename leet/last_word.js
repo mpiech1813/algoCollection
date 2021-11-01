@@ -39,14 +39,14 @@ A:
 var lengthOfLastWord = function (s) {
     const wordArr = s.split(' ').filter((word) => word !== '');
 
-    // let lastWord = wordArr.pop();
+    // const lastWord = wordArr.pop();
     // while (lastWord === '' && wordArr.length > 0) {
     //     lastWord = wordArr.pop();
     // }
 
     // return lastWord.split('').length;
 
-    console.log(wordArr);
+    console.log(wordArr.pop().split('').length);
 };
 
 const word1 = 'Hello World';
