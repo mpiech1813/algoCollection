@@ -34,3 +34,8 @@ A:
 5) if above not working, split the elemnet into an array
 6) use .length to check the number of characters
  */
+
+// C:
+var lengthOfLastWord = function (s) {
+    const wordArr = s.split(' ');
+};
