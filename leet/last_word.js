@@ -40,11 +40,11 @@ var lengthOfLastWord = function (s) {
     const wordArr = s.split(' ');
 
     let lastWord = wordArr.pop();
-    while (lastWord === '' || wordArr.length) {
+    while (lastWord === '' && wordArr.length > 0) {
         lastWord = wordArr.pop();
     }
 
-    console.log(lastWord);
+    return lastWord.split('').length;
 };
 
 const word1 = 'Hello World';
@@ -52,4 +52,4 @@ const word2 = '   fly me   to   the moon  ';
 const word3 = 'luffy is still joyboy';
 const word4 = '                     ';
 
-lengthOfLastWord(word2);
+lengthOfLastWord(word3);
