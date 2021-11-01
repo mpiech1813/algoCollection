@@ -37,14 +37,16 @@ A:
 
 // C:
 var lengthOfLastWord = function (s) {
-    const wordArr = s.split(' ');
+    const wordArr = s.split(' ').filter((word) => word !== '');
 
-    let lastWord = wordArr.pop();
-    while (lastWord === '' && wordArr.length > 0) {
-        lastWord = wordArr.pop();
-    }
+    // let lastWord = wordArr.pop();
+    // while (lastWord === '' && wordArr.length > 0) {
+    //     lastWord = wordArr.pop();
+    // }
 
-    return lastWord.split('').length;
+    // return lastWord.split('').length;
+
+    console.log(wordArr);
 };
 
 const word1 = 'Hello World';
@@ -52,4 +54,4 @@ const word2 = '   fly me   to   the moon  ';
 const word3 = 'luffy is still joyboy';
 const word4 = '                     ';
 
-lengthOfLastWord(word3);
+lengthOfLastWord(word2);
