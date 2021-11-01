@@ -56,3 +56,12 @@ const word3 = 'luffy is still joyboy';
 const word4 = '                     ';
 
 lengthOfLastWord(word2);
+
+/**
+ * First Solution:
+ *
+ * Runtime: 72 ms, faster than 80.22% of JavaScript online submissions for Length of Last Word.
+ * Memory Usage: 39 MB, less than 25.17% of JavaScript online submissions for Length of Last Word.
+ *
+ * Second Solution:
+ */
