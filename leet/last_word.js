@@ -64,4 +64,7 @@ lengthOfLastWord(word2);
  * Memory Usage: 39 MB, less than 25.17% of JavaScript online submissions for Length of Last Word.
  *
  * Second Solution:
+ *
+ * Runtime: 72 ms, faster than 80.22% of JavaScript online submissions for Length of Last Word.
+ * Memory Usage: 38.9 MB, less than 25.17% of JavaScript online submissions for Length of Last Word.
  */
