@@ -38,4 +38,12 @@ A:
 // C:
 var lengthOfLastWord = function (s) {
     const wordArr = s.split(' ');
+
+    console.log(wordArr);
 };
+
+const word1 = 'Hello World';
+const word2 = '   fly me   to   the moon  ';
+const word3 = 'luffy is still joyboy';
+
+lengthOfLastWord(word1);
