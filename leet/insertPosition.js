@@ -59,31 +59,53 @@ Output: 0
 
 // First Method (low mem)
 // What if aray has only 1 element
-var searchInsert = function (nums, target) {
-    let idxNum = nums.findIndex((ele) => ele === target);
-    if (idxNum >= 0) {
-        return idxNum;
-    } else if (nums[0] > target) {
-        return 0;
-    } else if (nums[nums.length - 1] < target) {
-        return nums.length;
-    } else {
-        for (let i = 0; i < nums.length; i++) {
-            const numX = nums[i];
-            const numZ = nums[i + 1];
+// var searchInsert = function (nums, target) {
+//     let idxNum = nums.findIndex((ele) => ele === target);
+//     if (idxNum >= 0) {
+//         return idxNum;
+//     } else if (nums[0] > target) {
+//         return 0;
+//     } else if (nums[nums.length - 1] < target) {
+//         return nums.length;
+//     } else {
+//         for (let i = 0; i < nums.length; i++) {
+//             const numX = nums[i];
+//             const numZ = nums[i + 1];
 
-            if (numX < target && numZ > target) {
-                return i + 1;
-            }
-        }
-    }
-};
+//             if (numX < target && numZ > target) {
+//                 return i + 1;
+//             }
+//         }
+//     }
+// };
 
-const nums = [1];
+// const nums = [1];
 
-searchInsert(nums, 1);
+// searchInsert(nums, 1);
 
 /**
  * Runtime: 76 ms, faster than 63.31% of JavaScript online submissions for Search Insert Position.
  * Memory Usage: 40 MB, less than 22.00% of JavaScript online submissions for Search Insert Position.
  */
+
+var searchInsert = function (nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    let middle;
+
+    while (left <= right) {
+        middle = Math.ceil((left + right) / 2);
+        if (nums[middle] === target) {
+            return middle;
+        } else if (nums[middle] > target) {
+            right = middle - 1;
+        } else {
+            left = middle + 1;
+        }
+    }
+    return left;
+};
+
+const nums = [1, 3, 5, 6];
+
+console.log(searchInsert(nums, 4));
