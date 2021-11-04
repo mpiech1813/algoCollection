@@ -59,7 +59,7 @@ Output: 0
 
 // First Method (low mem)
 var searchInsert = function (nums, target) {
-    let idxNum = nums.findIndex((ele) => ele === target);
+    const idxNum = nums.findIndex((ele) => ele === target);
     if (idxNum > 0) {
         console.log(idxNum);
         return idxNum;
