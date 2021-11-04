@@ -63,6 +63,10 @@ var searchInsert = function (nums, target) {
     if (idxNum > 0) {
         console.log(idxNum);
         return idxNum;
+    } else if (nums[0] > target) {
+        return 0;
+    } else if (nums[nums.length - 1] < target) {
+        return nums.length - 1;
     } else {
         for (let i = 0; i < nums.length; i++) {
             console.log(`current i `, i);
