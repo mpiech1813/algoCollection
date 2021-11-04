@@ -69,7 +69,6 @@ var searchInsert = function (nums, target) {
         return nums.length;
     } else {
         for (let i = 0; i < nums.length; i++) {
-            console.log(`current i `, i);
             const numX = nums[i];
             const numZ = nums[i + 1];
 
@@ -82,4 +81,4 @@ var searchInsert = function (nums, target) {
 
 const nums = [1, 3, 5, 6];
 
-console.log(searchInsert(nums, 0));
+searchInsert(nums, 4);
