@@ -35,6 +35,13 @@ Output: 0
 
 /**
  * Approach:
- *
+ * 1) check the array for the target using . findIndex()
+ * Yes) return the index
+ * No):
+ * - take 2 numbers next each other
+ * - check if 1>target. If yes, return index 0
+ * - check if 1<target<2
+ * - Yes: return index of 2
+ * - No: check
  *
  */
