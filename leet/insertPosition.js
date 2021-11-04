@@ -46,6 +46,7 @@ Output: 0
  * 1) copy the arr
  * 2) check the array for the target using . findIndex()
  * If not found:
+ * keep track of the X and Z index numbers
  * grab the first and last elements from arr
  * compare if X<Y ==> if false return index X - 1
  * compare if Z>Y ==> if false return index Z + 1
