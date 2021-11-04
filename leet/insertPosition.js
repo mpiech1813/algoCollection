@@ -109,3 +109,8 @@ var searchInsert = function (nums, target) {
 const nums = [1, 3, 5, 6];
 
 console.log(searchInsert(nums, 4));
+
+/**
+ * Runtime: 56 ms, faster than 99.95% of JavaScript online submissions for Search Insert Position.
+ * Memory Usage: 39.7 MB, less than 48.32% of JavaScript online submissions for Search Insert Position.
+ */
