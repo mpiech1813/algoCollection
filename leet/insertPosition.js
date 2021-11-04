@@ -56,3 +56,23 @@ Output: 0
  * compare if Z>Y ==> if false return index Z + 1
  * if false get
  */
+
+// First Method (low mem)
+var searchInsert = function (nums, target) {
+    let idxNum = nums.findIndex((ele) => ele === target);
+    if (idxNum > 0) {
+        console.log(idxNum);
+        return idxNum;
+    } else {
+        for (let i = 0; i <= nums.length; i++) {
+            const numX = nums[i];
+            const numZ = nums[i + 1];
+            if (numX > target) return i - 1;
+            if (numX < target && numZ > target) return i + 1;
+        }
+    }
+};
+
+const nums = [1, 3, 5, 6];
+
+searchInsert(nums, 4);
