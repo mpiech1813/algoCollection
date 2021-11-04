@@ -58,10 +58,10 @@ Output: 0
  */
 
 // First Method (low mem)
+// What if aray has only 1 element
 var searchInsert = function (nums, target) {
-    const idxNum = nums.findIndex((ele) => ele === target);
-    if (idxNum > 0) {
-        console.log(idxNum);
+    let idxNum = nums.findIndex((ele) => ele === target);
+    if (idxNum >= 0) {
         return idxNum;
     } else if (nums[0] > target) {
         return 0;
@@ -79,6 +79,11 @@ var searchInsert = function (nums, target) {
     }
 };
 
-const nums = [1, 3, 5, 6];
+const nums = [1];
 
-searchInsert(nums, 4);
+searchInsert(nums, 1);
+
+/**
+ * Runtime: 76 ms, faster than 63.31% of JavaScript online submissions for Search Insert Position.
+ * Memory Usage: 40 MB, less than 22.00% of JavaScript online submissions for Search Insert Position.
+ */
