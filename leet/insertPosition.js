@@ -64,15 +64,18 @@ var searchInsert = function (nums, target) {
         console.log(idxNum);
         return idxNum;
     } else {
-        for (let i = 0; i <= nums.length; i++) {
+        for (let i = 0; i < nums.length; i++) {
+            console.log(`current i `, i);
             const numX = nums[i];
             const numZ = nums[i + 1];
-            if (numX > target) return i - 1;
-            if (numX < target && numZ > target) return i + 1;
+
+            if (numX < target && numZ > target) {
+                return i + 1;
+            }
         }
     }
 };
 
 const nums = [1, 3, 5, 6];
 
-searchInsert(nums, 4);
+console.log(searchInsert(nums, 7));
