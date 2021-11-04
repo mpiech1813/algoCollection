@@ -39,10 +39,8 @@ Output: 0
  * Yes) return the index
  * No):
  * - take 2 numbers next each other
- * - check if 1>target. If yes, return index 0
- * - check if 1<target<2
- * - Yes: return index of 2
- * - No: check
+ * compare if X<Y ==> if false return index X - 1
+ * when reaches the end return arr.length
  *
  * Approach 2 (low time):
  * 1) copy the arr
