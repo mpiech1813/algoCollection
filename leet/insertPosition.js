@@ -34,7 +34,7 @@ Output: 0
  */
 
 /**
- * Approach:
+ * Approach 1 (low mem):
  * 1) check the array for the target using . findIndex()
  * Yes) return the index
  * No):
@@ -44,4 +44,16 @@ Output: 0
  * - Yes: return index of 2
  * - No: check
  *
+ * Approach 2 (low time):
+ * 1) copy the arr
+ * 2) check the array for the target using . findIndex()
+ * If not found:
+ * grab the first and last elements from arr
+ * compare if X<Y ==> if false return index X - 1
+ * compare if Z>Y ==> if false return index Z + 1
+ * if true, memorize current X<Y<Z
+ * if false get X and X+1
+ * compare if X<Y ==> if false return index X - 1
+ * compare if Z>Y ==> if false return index Z + 1
+ * if false get
  */
