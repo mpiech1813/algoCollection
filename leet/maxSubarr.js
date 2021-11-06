@@ -73,14 +73,16 @@ var maxSubArray = function (nums) {
     let highestSum = nums[0];
     let currSum = 0;
 
-    for (let n in nums) {
+    for (let i = 0; i < nums.length; i++) {
         if (currSum < 0) currSum = 0;
-        currSum += nums[n];
+        currSum += nums[i];
         highestSum = Math.max(highestSum, currSum);
     }
 
-    console.log(highestSum);
+    return highestSum;
 };
+
+// using for loop is quick then for (n in nums)
 
 const nums = [5, 4, -1, 7, 8];
 const nums2 = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
@@ -90,3 +92,7 @@ const nums5 = [5, 4, -1, 7, 8];
 const nums6 = [-1, 0, -2];
 
 maxSubArray(nums2);
+
+// Runtime: 88 ms, faster than 83.64% of JavaScript online submissions for Maximum Subarray.
+// Memory Usage: 48.8 MB, less than 36.52% of JavaScript online submissions for Maximum Subarray.
+// Next challenges:
