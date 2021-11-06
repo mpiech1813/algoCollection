@@ -48,11 +48,15 @@ var maxSubArray = function (nums) {
 
             const tempSum = tempArr.reduce((tot, ele) => tot + ele);
 
-            console.log(tempSum);
+            if (tempSum > highestSum) highestSum = tempSum;
         }
     }
+
+    console.log(highestSum);
 };
 
 const nums = [5, 4, -1, 7, 8];
+const nums2 = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+const nums3 = [1];
 
-maxSubArray(nums);
+maxSubArray(nums3);
