@@ -40,7 +40,9 @@
  */
 
 var maxSubArray = function (nums) {
-    let highestSum = 0;
+    if (nums.length === 1) console.log(nums[0]);
+
+    let highestSum = nums.slice(0, 1).reduce((a, b) => a + b);
 
     for (let i = 0; i <= nums.length; i++) {
         for (let j = i + 1; j <= nums.length; j++) {
@@ -58,5 +60,6 @@ var maxSubArray = function (nums) {
 const nums = [5, 4, -1, 7, 8];
 const nums2 = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 const nums3 = [1];
+const nums4 = [-2, -1];
 
-maxSubArray(nums3);
+maxSubArray(nums4);
