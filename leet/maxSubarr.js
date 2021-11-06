@@ -3,6 +3,7 @@
  *
  * A subarray is a contiguous part of an array.
  */
+
 /**
  * Example 1:
  *
@@ -21,6 +22,7 @@
  * Output: 23
  *
  */
+
 /**
  * Approach:
  *
@@ -36,3 +38,21 @@
  *
  * Probably will need 2 for loops
  */
+
+var maxSubArray = function (nums) {
+    let highestSum = 0;
+
+    for (let i = 0; i <= nums.length; i++) {
+        for (let j = i + 1; j <= nums.length; j++) {
+            const tempArr = nums.slice(i, j);
+
+            const tempSum = tempArr.reduce((tot, ele) => tot + ele);
+
+            console.log(tempSum);
+        }
+    }
+};
+
+const nums = [5, 4, -1, 7, 8];
+
+maxSubArray(nums);
