@@ -21,3 +21,18 @@
  * Output: 23
  *
  */
+/**
+ * Approach:
+ *
+ * If arr.length === 1 return [0]
+ * Let highestX
+ * Let highestZ
+ * Let highestSum
+ * Use object for highest records
+ * let tempArr = from X to Z using .slice()
+ * Total using tempArr.reduce()
+ * Compare with the sum, if larger record highestX and highestZ, else ignore
+ * Return highest sum
+ *
+ * Probably will need 2 for loops
+ */
