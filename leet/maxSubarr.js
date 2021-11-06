@@ -73,9 +73,9 @@ var maxSubArray = function (nums) {
     let highestSum = nums[0];
     let currSum = 0;
 
-    for (letn in nums) {
+    for (let n in nums) {
         if (currSum < 0) currSum = 0;
-        currSum += n;
+        currSum += nums[n];
         highestSum = Math.max(highestSum, currSum);
     }
 
@@ -89,4 +89,4 @@ const nums4 = [-2, -1];
 const nums5 = [5, 4, -1, 7, 8];
 const nums6 = [-1, 0, -2];
 
-maxSubArray(nums6);
+maxSubArray(nums2);
