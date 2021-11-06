@@ -56,11 +56,12 @@
 //  console.log(highestSum);
 
 var maxSubArray = function (nums) {
-    let highestSum = nums.shift();
+    let highestSum = nums[0];
 
     while (nums.length) {
         const firstNum = nums.shift();
         let total = firstNum;
+        if (total > highestSum) highestSum = total;
         nums.forEach((ele) => {
             total += ele;
             if (total > highestSum) highestSum = total;
@@ -75,5 +76,6 @@ const nums2 = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 const nums3 = [1];
 const nums4 = [-2, -1];
 const nums5 = [5, 4, -1, 7, 8];
+const nums6 = [-1, 0, -2];
 
-maxSubArray(nums4);
+maxSubArray(nums6);
