@@ -72,3 +72,15 @@ console.log(strStr(haystack, needle));
 var strStr = function (haystack, needle) {
     return haystack.indexOf(needle);
 };
+
+/**
+ * ------------------soution 3 mine-------------------
+ */
+
+var strStr = function (haystack, needle) {
+    if (needle.length === 0) return 0;
+    for (let n = 0; n <= haystack.length - needle.length; n++) {
+        if (haystack.substring(n, n + needle.length) === needle) return n;
+    }
+    return -1;
+};
