@@ -27,3 +27,17 @@
  * Output: 0
  *
  */
+
+/**
+ * conver string to array
+ * if no string is given, return 0
+ * use the method of transversal similar to the problem with very long array
+ * travel through the array once
+ * start at 0
+ * suwak => length of it will be decide by length of the needle
+ * slice from n to needle.length
+ * compare slice to needle
+ * if the same return n
+ * if not the same continue
+ * if reached the end, return -1
+ */
