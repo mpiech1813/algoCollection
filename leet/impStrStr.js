@@ -43,20 +43,32 @@
  */
 
 var strStr = function (haystack, needle) {
-    const letterArr = haystack.split('');
-    const sliceLength = needle.length;
+    // const letterArr = haystack.split('');
+    // const sliceLength = needle.length;
 
-    if (needle.length === 0) return 0;
+    // if (needle.length === 0) return 0;
 
-    for (let n = 0; n <= letterArr.length - sliceLength; n++) {
-        const slice = letterArr.slice(n, n + sliceLength).join('');
-        if (slice === needle) return n;
-    }
+    // for (let n = 0; n <= letterArr.length - sliceLength; n++) {
+    //     const slice = letterArr.slice(n, n + sliceLength).join('');
+    //     if (slice === needle) return n;
+    // }
 
-    return -1;
+    // return -1;
+    return haystack.indexOf(needle);
 };
 
 const haystack = '';
 const needle = 'a';
 
 console.log(strStr(haystack, needle));
+
+/**
+ * worked but very slowly
+ * Runtime: 4880 ms, faster than 7.10% of JavaScript online submissions for Implement strStr().
+ * Memory Usage: 45 MB, less than 5.49% of JavaScript online submissions for Implement strStr().
+ */
+
+/**--------------solution 2---------------- */
+var strStr = function (haystack, needle) {
+    return haystack.indexOf(needle);
+};
