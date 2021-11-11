@@ -41,3 +41,22 @@
  * if not the same continue
  * if reached the end, return -1
  */
+
+var strStr = function (haystack, needle) {
+    const letterArr = haystack.split('');
+    const sliceLength = needle.length;
+
+    if (needle.length === 0) return 0;
+
+    for (let n = 0; n <= letterArr.length - sliceLength; n++) {
+        const slice = letterArr.slice(n, n + sliceLength).join('');
+        if (slice === needle) return n;
+    }
+
+    return -1;
+};
+
+const haystack = '';
+const needle = 'a';
+
+console.log(strStr(haystack, needle));
