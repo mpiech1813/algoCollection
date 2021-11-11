@@ -84,3 +84,10 @@ var strStr = function (haystack, needle) {
     }
     return -1;
 };
+
+/**
+ * Same solution as my original one but no array conversion
+ *
+ * Runtime: 68 ms, faster than 96.78% of JavaScript online submissions for Implement strStr().
+ * Memory Usage: 40.6 MB, less than 31.04% of JavaScript online submissions for Implement strStr().
+ */
