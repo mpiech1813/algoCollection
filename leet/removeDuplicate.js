@@ -50,3 +50,22 @@
  * return memory.length
  *
  */
+
+var removeDuplicates = function (nums) {
+    const memory = [];
+
+    for (let n = 0; n < nums.length; n++) {
+        if (!memory.includes(nums[n])) {
+            // console.log('pushing: ', nums[n]);
+            memory.push(nums[n]);
+        }
+    }
+    // console.log(memory);
+    return memory;
+};
+
+const nums = [1, 1, 2];
+const nums2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+const nums3 = [];
+
+console.log(removeDuplicates(nums3));
