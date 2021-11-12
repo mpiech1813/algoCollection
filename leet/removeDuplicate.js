@@ -55,13 +55,17 @@ var removeDuplicates = function (nums) {
     const memory = [];
 
     for (let n = 0; n < nums.length; n++) {
+        console.log('examining: ', nums[n]);
         if (!memory.includes(nums[n])) {
             // console.log('pushing: ', nums[n]);
             memory.push(nums[n]);
+        } else {
+            n--;
+            nums.splice(n, 1);
         }
     }
-    // console.log(memory);
-    return memory;
+    console.log(memory);
+    return memory.length;
 };
 
 const nums = [1, 1, 2];
