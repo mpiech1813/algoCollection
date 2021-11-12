@@ -40,3 +40,13 @@
  * It does not matter what you leave beyond the returned k (hence they are underscores).
  *
  */
+
+/**
+ * create a memory array
+ * go thtough the array once
+ * examine each ele
+ * if the element is not in the memory, add it and move on
+ * if the element is in the memory, skip it
+ * return memory.length
+ *
+ */
