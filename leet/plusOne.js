@@ -66,7 +66,7 @@
 var plusOne = function (digits) {
     const num = Number(digits.join(''));
 
-    const newArr = String(num + 1);
+    const newArr = String(num + 1).split('');
 
     return newArr;
 };
