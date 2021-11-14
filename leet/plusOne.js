@@ -47,13 +47,13 @@
  * convert string back to arr
  */
 
-const arr = [1, 2, 3];
+// const arr = [1, 2, 3];
 
-const num = parseInt(arr.join(''));
+// const num = parseInt(arr.join(''));
 
-const arr2 = num;
+// const arr2 = num;
 
-console.log(typeof String(num));
+// console.log(typeof String(num));
 
 // var myInt = 235345;
 
@@ -62,3 +62,12 @@ console.log(typeof String(num));
 // let myFunc = num => Number(num);
 
 // var intArr = Array.from(String(myInt), myFunc);
+
+var plusOne = function (digits) {};
+
+const digits = [1, 2, 3];
+const digits2 = [4, 3, 2, 1];
+const digits3 = [0];
+const digits4 = [9];
+
+console.log(plsuOne(digits));
