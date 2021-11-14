@@ -68,19 +68,16 @@ var plusOne = function (digits) {
     let currNum = digits[n] + 1;
 
     while (currNum >= 10) {
-        if (n >= 0) {
-            console.log('current number: ', digits[n]);
-            digits[n] = currNum - 10;
-            n--;
-            currNum = digits[n] + 1;
-        } else {
-            digits[n] = currNum - 10;
-            digits.unshift(1);
-            currNum = 0;
-        }
+        console.log('current number: ', digits[n]);
+        digits[n] = currNum - 10;
+        n--;
+        currNum = digits[n] + 1;
     }
-
-    if (currNum < 10) {
+    if (n < 0) {
+        // digits[n] = currNum - 10;
+        digits.unshift(1);
+        currNum = 0;
+    } else {
         digits[n] = currNum;
     }
     return digits;
@@ -94,4 +91,4 @@ const digits5 = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
 const digits6 = [9, 9, 9, 9, 9];
 const digits7 = [8, 9, 9, 9];
 
-console.log(plusOne(digits7));
+console.log(plusOne(digits5));
