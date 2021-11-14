@@ -64,7 +64,7 @@
 // var intArr = Array.from(String(myInt), myFunc);
 
 var plusOne = function (digits) {
-    const num = Number(digits);
+    const num = Number(digits.join(''));
     return num;
 };
 
