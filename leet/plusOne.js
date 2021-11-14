@@ -64,7 +64,8 @@
 // var intArr = Array.from(String(myInt), myFunc);
 
 var plusOne = function (digits) {
-    const num = Number(digits.join(''));
+    const num = digits.join('');
+    console.log(num);
 
     const newArr = String(num + 1).split('');
 
@@ -77,4 +78,4 @@ const digits3 = [0];
 const digits4 = [9];
 const digits5 = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
 
-console.log(plusOne(digits));
+console.log(plusOne(digits5));
