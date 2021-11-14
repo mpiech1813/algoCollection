@@ -92,3 +92,8 @@ const digits6 = [9, 9, 9, 9, 9];
 const digits7 = [8, 9, 9, 9];
 
 console.log(plusOne(digits5));
+
+/**
+ * Runtime: 76 ms, faster than 57.18% of JavaScript online submissions for Plus One.
+ * Memory Usage: 40.2 MB, less than 5.24% of JavaScript online submissions for Plus One.
+ */
