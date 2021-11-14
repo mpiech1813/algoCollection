@@ -65,9 +65,7 @@
 
 var plusOne = function (digits) {
     const num = Number(digits.join(''));
-    num++;
-
-    return num;
+    return num + 1;
 };
 
 const digits = [1, 2, 3];
