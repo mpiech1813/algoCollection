@@ -39,3 +39,26 @@
  * Thus, the result should be [1,0].
  *
  */
+
+/**
+ * convert arr to number
+ * add 1
+ * convert to string
+ * convert string back to arr
+ */
+
+const arr = [1, 2, 3];
+
+const num = parseInt(arr.join(''));
+
+const arr2 = num;
+
+console.log(typeof String(num));
+
+// var myInt = 235345;
+
+// // Getting the string as a parameter
+// // and typecasting it into an integer
+// let myFunc = num => Number(num);
+
+// var intArr = Array.from(String(myInt), myFunc);
