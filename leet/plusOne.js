@@ -73,4 +73,4 @@ const digits2 = [4, 3, 2, 1];
 const digits3 = [0];
 const digits4 = [9];
 
-console.log(plsuOne(digits));
+console.log(plusOne(digits));
