@@ -63,7 +63,10 @@
 
 // var intArr = Array.from(String(myInt), myFunc);
 
-var plusOne = function (digits) {};
+var plusOne = function (digits) {
+    const num = Number(digits);
+    return num;
+};
 
 const digits = [1, 2, 3];
 const digits2 = [4, 3, 2, 1];
