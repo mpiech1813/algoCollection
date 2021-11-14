@@ -64,12 +64,26 @@
 // var intArr = Array.from(String(myInt), myFunc);
 
 var plusOne = function (digits) {
-    const num = digits.join('');
-    console.log(num);
+    let n = digits.length - 1;
+    let currNum = digits[n] + 1;
 
-    const newArr = String(num + 1).split('');
+    if (currNum < 10) {
+        digits[n] = currNum;
+    } else {
+        while (currNum >= 10) {
+            if (n >= 1) {
+                digits[n] = currNum - 10;
+                n--;
+                currNum = digits[n] + 1;
+            } else {
+                digits[n] = currNum - 10;
+                digits.unshift(1);
+                currNum = 0;
+            }
+        }
+    }
 
-    return newArr;
+    return digits;
 };
 
 const digits = [1, 2, 3];
