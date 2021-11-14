@@ -63,24 +63,35 @@
 
 // var intArr = Array.from(String(myInt), myFunc);
 
-var plusOne = function (digits) {
-    let n = digits.length - 1;
-    let currNum = digits[n] + 1;
+// var plusOne = function (digits) {
+//     let n = digits.length - 1;
+//     let currNum = digits[n] + 1;
 
-    while (currNum >= 10) {
-        console.log('current number: ', digits[n]);
-        digits[n] = currNum - 10;
-        n--;
-        currNum = digits[n] + 1;
-    }
-    if (n < 0) {
-        // digits[n] = currNum - 10;
-        digits.unshift(1);
-        currNum = 0;
-    } else {
-        digits[n] = currNum;
-    }
-    return digits;
+//     while (currNum >= 10) {
+//         console.log('current number: ', digits[n]);
+//         digits[n] = currNum - 10;
+//         n--;
+//         currNum = digits[n] + 1;
+//     }
+//     if (n < 0) {
+//         // digits[n] = currNum - 10;
+//         digits.unshift(1);
+//         currNum = 0;
+//     } else {
+//         digits[n] = currNum;
+//     }
+//     return digits;
+// };
+
+/**
+ * Runtime: 76 ms, faster than 57.18% of JavaScript online submissions for Plus One.
+ * Memory Usage: 40.2 MB, less than 5.24% of JavaScript online submissions for Plus One.
+ */
+
+var plusOne = function (digits) {
+    let num = BigInt(digits.join(''));
+    num++;
+    return String(num).split('');
 };
 
 const digits = [1, 2, 3];
@@ -92,8 +103,3 @@ const digits6 = [9, 9, 9, 9, 9];
 const digits7 = [8, 9, 9, 9];
 
 console.log(plusOne(digits5));
-
-/**
- * Runtime: 76 ms, faster than 57.18% of JavaScript online submissions for Plus One.
- * Memory Usage: 40.2 MB, less than 5.24% of JavaScript online submissions for Plus One.
- */
