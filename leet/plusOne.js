@@ -88,6 +88,7 @@
  * Memory Usage: 40.2 MB, less than 5.24% of JavaScript online submissions for Plus One.
  */
 
+// This is my original solution but i didnt know about BigInt
 var plusOne = function (digits) {
     let num = BigInt(digits.join(''));
     num++;
@@ -103,3 +104,8 @@ const digits6 = [9, 9, 9, 9, 9];
 const digits7 = [8, 9, 9, 9];
 
 console.log(plusOne(digits5));
+
+/**
+ * Runtime: 72 ms, faster than 78.38% of JavaScript online submissions for Plus One.
+ * Memory Usage: 39 MB, less than 21.93% of JavaScript online submissions for Plus One.
+ */
