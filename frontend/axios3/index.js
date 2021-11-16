@@ -9,6 +9,7 @@ class App extends Component {
             pokeList: [],
             previousNode: '',
             nextNode: '',
+            page: 1,
         };
     }
 
@@ -18,7 +19,7 @@ class App extends Component {
                 'https://pokeapi.co/api/v2/pokemon'
             );
 
-            // console.log(longList);
+            console.log(longList);
 
             this.setState({
                 pokeList: longList.results,
@@ -33,15 +34,17 @@ class App extends Component {
     nextList = async () => {
         try {
             const { nextNode } = this.state;
+            let { page } = this.state;
 
             const nextList = await entireList(nextNode);
             // console.log(nextNode);
             // console.log('next!');
-
+            page++;
             this.setState({
                 pokeList: nextList.results,
                 previousNode: nextList.previous,
                 nextNode: nextList.next,
+                page,
             });
         } catch (error) {
             console.log(error);
@@ -51,15 +54,17 @@ class App extends Component {
     previousList = async () => {
         try {
             const { previousNode } = this.state;
+            let { page } = this.state;
 
             const previousList = await entireList(previousNode);
             // console.log(nextNode);
             // console.log('next!');
-
+            page--;
             this.setState({
                 pokeList: previousList.results,
                 previousNode: previousList.previous,
                 nextNode: previousList.next,
+                page,
             });
         } catch (error) {
             console.log(error);
@@ -67,12 +72,13 @@ class App extends Component {
     };
 
     render() {
-        const { pokeList, previousNode } = this.state;
+        const { pokeList, previousNode, page } = this.state;
         // console.log('the state is', pokeList);
 
         return (
             <div>
                 <h1>hello from the Component</h1>
+                <p>{page}</p>
                 <ul>
                     {pokeList.map((ele, idx) => {
                         return <li key={idx}>{ele.name}</li>;
