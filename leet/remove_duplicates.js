@@ -78,16 +78,20 @@ arr.forEach((ele) => myNode.push(ele));
 
 var deleteDuplicates = function (head) {
     let currentNode = head.head;
-    let nextNode = head.head.next;
+    let nextNode = currentNode.next;
 
-    console.log(currentNode);
+    console.log(nextNode);
 
-    // while (nextNode !== null) {
-    //     if (currentNode.value === nextNode.value) {
-    //         console.log('current node ', currentNode.value);
-    //         console.log('nextNode ', nextNode.value);
-    //     }
+    // if (nextNode.next === null) {
+    //     console.log('null');
     // }
+
+    while (nextNode !== null) {
+        if (currentNode.value === nextNode.value) {
+            console.log('current node ', currentNode.value);
+            console.log('nextNode ', nextNode.value);
+        }
+    }
 };
 
 deleteDuplicates(myNode);
