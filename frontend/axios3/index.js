@@ -48,8 +48,26 @@ class App extends Component {
         }
     };
 
+    previousList = async () => {
+        try {
+            const { previousNode } = this.state;
+
+            const previousList = await entireList(previousNode);
+            // console.log(nextNode);
+            // console.log('next!');
+
+            this.setState({
+                pokeList: previousList.results,
+                previousNode: previousList.previous,
+                nextNode: previousList.next,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     render() {
-        const { pokeList } = this.state;
+        const { pokeList, previousNode } = this.state;
         // console.log('the state is', pokeList);
 
         return (
@@ -62,7 +80,7 @@ class App extends Component {
                 </ul>
                 <button
                     onClick={() => {
-                        console.log('previous');
+                        this.previousList();
                     }}
                 >
                     Previous
