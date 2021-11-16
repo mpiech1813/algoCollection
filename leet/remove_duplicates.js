@@ -152,3 +152,15 @@ console.log(myNode.head.next.next.next.next.next);
  * Memory Usage: 40.8 MB, less than 47.76% of JavaScript online submissions for Remove Duplicates from Sorted List.
  *
  */
+const deleteDuplicates = () => {
+    let node = head;
+    while (node && node.next) {
+        if (node.val === node.next.val) {
+            if (node.next.next) node.next = node.next.next;
+            else node.next = null;
+        } else {
+            node = node.next;
+        }
+    }
+    return head;
+};
