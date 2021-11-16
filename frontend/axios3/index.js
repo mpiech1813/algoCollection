@@ -5,38 +5,94 @@ import entireList from './utils';
 class App extends Component {
     constructor() {
         super();
-        this.state = { pokeList: [] };
-
-        this.getList = this.getList.bind(this);
+        this.state = {
+            pokeList: [],
+            previousNode: '',
+            nextNode: '',
+            page: 1,
+        };
     }
 
-    getList = () => {
+    async componentDidMount() {
         try {
-            // const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
-            //     .data;
-            const longList = entireList('https://pokeapi.co/api/v2/pokemon');
-            // console.log('the long list is: ', longList);
+            const longList = await entireList(
+                'https://pokeapi.co/api/v2/pokemon'
+            );
 
-            this.setState({ pokeList: longList });
-            // console.log('the state is: ', this.state.pokeList);
+            console.log(longList);
+
+            this.setState({
+                pokeList: longList.results,
+                previousNode: longList.previous,
+                nextNode: longList.next,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    nextList = async () => {
+        try {
+            const { nextNode } = this.state;
+            let { page } = this.state;
+
+            const nextList = await entireList(nextNode);
+            // console.log(nextNode);
+            // console.log('next!');
+            page++;
+            this.setState({
+                pokeList: nextList.results,
+                previousNode: nextList.previous,
+                nextNode: nextList.next,
+                page,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    previousList = async () => {
+        try {
+            const { previousNode } = this.state;
+            let { page } = this.state;
+
+            const previousList = await entireList(previousNode);
+            // console.log(nextNode);
+            // console.log('next!');
+            page--;
+            this.setState({
+                pokeList: previousList.results,
+                previousNode: previousList.previous,
+                nextNode: previousList.next,
+                page,
+            });
         } catch (error) {
             console.log(error);
         }
     };
 
     render() {
-        const { pokeList } = this.state;
-        console.log('the state is', pokeList);
+        const { pokeList, previousNode, page } = this.state;
+        // console.log('the state is', pokeList);
 
         return (
             <div>
                 <h1>hello from the Component</h1>
-                <button onClick={() => this.getList()}>Click Me!</button>
+                <p>Page: {page}</p>
                 <ul>
                     {pokeList.map((ele, idx) => {
-                        <li key={idx}>hello</li>;
+                        return <li key={idx}>{ele.name}</li>;
                     })}
                 </ul>
+                <button
+                    disabled={!previousNode}
+                    onClick={() => {
+                        this.previousList();
+                    }}
+                >
+                    Previous
+                </button>
+                <button onClick={() => this.nextList()}>Next</button>
             </div>
         );
     }
