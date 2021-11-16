@@ -5,20 +5,23 @@ import entireList from './utils';
 class App extends Component {
     constructor() {
         super();
-        this.state = { pokeList: [] };
+        this.state = {
+            pokeList: [],
+            previousNode: '',
+            nextNode: '',
+        };
 
         this.getList = this.getList.bind(this);
     }
 
-    getList = () => {
+    getList = async () => {
         try {
-            // const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
-            //     .data;
-            const longList = entireList('https://pokeapi.co/api/v2/pokemon');
-            // console.log('the long list is: ', longList);
+            const longList = await entireList(
+                'https://pokeapi.co/api/v2/pokemon'
+            );
+            console.log('the long list is: ', longList);
 
-            this.setState({ pokeList: longList });
-            // console.log('the state is: ', this.state.pokeList);
+            this.setState({ pokeList: longList.results });
         } catch (error) {
             console.log(error);
         }
@@ -26,7 +29,7 @@ class App extends Component {
 
     render() {
         const { pokeList } = this.state;
-        console.log('the state is', pokeList);
+        // console.log('the state is', pokeList);
 
         return (
             <div>

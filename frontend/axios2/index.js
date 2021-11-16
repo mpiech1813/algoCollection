@@ -13,7 +13,7 @@ class App extends Component {
             const pokeList = (
                 await axios.get('https://pokeapi.co/api/v2/pokemon')
             ).data;
-            console.log(pokeList.results);
+            // console.log(pokeList.results);
             this.setState({ pokemon: pokeList.results });
         } catch (error) {
             next(error);
