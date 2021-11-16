@@ -67,7 +67,7 @@ class App extends Component {
                 >
                     Previous
                 </button>
-                <button onClick={() => this.nextList()}>Click Me!</button>
+                <button onClick={() => this.nextList()}>Next</button>
             </div>
         );
     }
