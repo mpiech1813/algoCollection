@@ -57,10 +57,10 @@ class SinglyLinkedList {
 
 // const arr = [1, 2, 3, 4, 5, 6, 7];
 // const arr = [1];
-const arr = [1, 2];
+// const arr = [1, 2];
 // const arr = [1, 2, 3, 4, 4];
 // const arr = [1,1,2,3,4,5,6]
-// const arr = [1, 1, 2, 2, 3, 4, 4, 5, 6];
+const arr = [1, 1, 2, 2, 3, 4, 4, 5, 6];
 
 let myNode = new SinglyLinkedList();
 
@@ -80,18 +80,33 @@ var deleteDuplicates = function (head) {
     let currentNode = head.head;
     let nextNode = currentNode.next;
 
-    console.log(nextNode);
+    // console.log(nextNode.val);
 
     // if (nextNode.next === null) {
     //     console.log('null');
     // }
 
     while (nextNode !== null) {
-        if (currentNode.value === nextNode.value) {
-            console.log('current node ', currentNode.value);
-            console.log('nextNode ', nextNode.value);
+        // if (currentNode.value === nextNode.value) {
+        // }
+        if (currentNode.val === nextNode.val) {
+            // console.log('current node ', currentNode.val);
+            // console.log('nextNode ', nextNode.val);
+            // console.log('i triggered');
+            nextNode = nextNode.next;
+        } else {
+            // console.log('else current node ', currentNode.val);
+            // console.log('else nextNode ', nextNode.val);
+            currentNode.next = nextNode;
+            currentNode = nextNode;
+            nextNode = nextNode.next;
         }
+        // console.log(currentNode.val);
+        // currentNode = nextNode;
+        // nextNode = nextNode.next;
     }
 };
 
 deleteDuplicates(myNode);
+
+console.log(myNode.head.next.next.next.next.next);
