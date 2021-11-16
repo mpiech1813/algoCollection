@@ -22,6 +22,8 @@
  * if the same, grab the following node (III)
  * if node I and node III have diffrent values, assign I.next to node III
  * if node I and node III have the same, grab node IV
+ * address the case if last 2 nodes are the same (last node will be chopped off, secondToLastNode.next = null)
+ * address the case if only 1 node is present
  */
 
 class Node {
@@ -54,6 +56,8 @@ class SinglyLinkedList {
 }
 
 const arr = [1, 2, 3, 4, 5, 6, 7];
+// const arr = [1];
+// const arr = [1, 2, 3, 4, 4];
 // const arr = [1,1,2,3,4,5,6]
 // const arr = [1, 1, 2, 2, 3, 4, 4, 5, 6];
 
@@ -72,7 +76,12 @@ arr.forEach((ele) => myNode.push(ele));
 // node4.next = node5;
 
 var deleteDuplicates = function (head) {
-    console.log(head.head);
+    let currentNode = head.head;
+    let nextNode = head.head.next;
+
+    console.log();
+
+    // while (nextNode) {}
 };
 
 deleteDuplicates(myNode);
