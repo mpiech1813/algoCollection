@@ -110,3 +110,24 @@ var deleteDuplicates = function (head) {
 deleteDuplicates(myNode);
 
 console.log(myNode.head.next.next.next.next.next);
+
+/**
+ * const deleteDuplicates = function (head) {
+  if (!head || !head.next) return head;
+
+  let p = head;
+  let c = head.next;
+
+  while (c) {
+    if (p.val === c.val) {
+      p.next = c.next;
+    } else {
+      p = c;
+    }
+
+    c = c.next;
+  }
+
+  return head;
+};
+ */
