@@ -105,6 +105,7 @@ var deleteDuplicates = function (head) {
     // currentNode = nextNode;
     // nextNode = nextNode.next;
     // }
+    if (!head || !head.next) return head;
     let currentNode = head;
     let nextNode = head.next;
 
