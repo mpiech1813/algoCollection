@@ -77,8 +77,8 @@ arr.forEach((ele) => myNode.push(ele));
 // node4.next = node5;
 
 var deleteDuplicates = function (head) {
-    let currentNode = head.head;
-    let nextNode = currentNode.next;
+    // let currentNode = head.head;
+    // let nextNode = currentNode.next;
 
     // console.log(nextNode.val);
 
@@ -86,25 +86,38 @@ var deleteDuplicates = function (head) {
     //     console.log('null');
     // }
 
-    while (nextNode !== null) {
-        // if (currentNode.value === nextNode.value) {
-        // }
+    // while (nextNode !== null) {
+    // if (currentNode.value === nextNode.value) {
+    // }
+    // if (currentNode.val === nextNode.val) {
+    //     // console.log('current node ', currentNode.val);
+    //     // console.log('nextNode ', nextNode.val);
+    //     // console.log('i triggered');
+    //     nextNode = nextNode.next;
+    // } else {
+    //     // console.log('else current node ', currentNode.val);
+    //     // console.log('else nextNode ', nextNode.val);
+    //     currentNode.next = nextNode;
+    //     currentNode = nextNode;
+    //     nextNode = nextNode.next;
+    // }
+    // console.log(currentNode.val);
+    // currentNode = nextNode;
+    // nextNode = nextNode.next;
+    // }
+    let currentNode = head;
+    let nextNode = head.next;
+
+    while (nextNode) {
         if (currentNode.val === nextNode.val) {
-            // console.log('current node ', currentNode.val);
-            // console.log('nextNode ', nextNode.val);
-            // console.log('i triggered');
-            nextNode = nextNode.next;
+            currentNode.next = nextNode.next;
         } else {
-            // console.log('else current node ', currentNode.val);
-            // console.log('else nextNode ', nextNode.val);
-            currentNode.next = nextNode;
             currentNode = nextNode;
-            nextNode = nextNode.next;
         }
-        // console.log(currentNode.val);
-        // currentNode = nextNode;
-        // nextNode = nextNode.next;
+        nextNode = nextNode.next;
     }
+
+    return head;
 };
 
 deleteDuplicates(myNode);
@@ -115,17 +128,17 @@ console.log(myNode.head.next.next.next.next.next);
  * const deleteDuplicates = function (head) {
   if (!head || !head.next) return head;
 
-  let p = head;
-  let c = head.next;
+  let currentNode = head;
+  let nextNode = head.next;
 
-  while (c) {
-    if (p.val === c.val) {
-      p.next = c.next;
+  while (nextNode) {
+    if (currentNode.val === nextNode.val) {
+      currentNode.next = nextNode.next;
     } else {
-      p = c;
+      currentNode = nextNode;
     }
 
-    c = c.next;
+    nextNode = nextNode.next;
   }
 
   return head;
