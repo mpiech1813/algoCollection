@@ -164,3 +164,8 @@ const deleteDuplicates = () => {
     }
     return head;
 };
+
+/**
+ * Runtime: 92 ms, faster than 44.74% of JavaScript online submissions for Remove Duplicates from Sorted List.
+ * Memory Usage: 40.7 MB, less than 65.06% of JavaScript online submissions for Remove Duplicates from Sorted List.
+ */
