@@ -53,12 +53,13 @@ class SinglyLinkedList {
     }
 }
 
-// const arr = [1, 2, 3, 4, 5, 6, 7];
+const arr = [1, 2, 3, 4, 5, 6, 7];
 // const arr = [1,1,2,3,4,5,6]
-const arr = [1, 1, 2, 2, 3, 4, 4, 5, 6];
+// const arr = [1, 1, 2, 2, 3, 4, 4, 5, 6];
 
-let myNode;
-arr.forEach((ele) => (myNode = new SinglyLinkedList().push(ele)));
+let myNode = new SinglyLinkedList();
+
+arr.forEach(ele => myNode.push(ele))
 // myNode = new SinglyLinkedList().push(2);
 // const node1 = new Node(1);
 // const node2 = new Node(2);
