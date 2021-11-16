@@ -79,6 +79,7 @@ class App extends Component {
                     })}
                 </ul>
                 <button
+                    disabled={!previousNode}
                     onClick={() => {
                         this.previousList();
                     }}
