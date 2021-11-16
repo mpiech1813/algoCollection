@@ -54,7 +54,8 @@ class SinglyLinkedList {
 }
 
 const arr = [1, 2, 3, 4, 5, 6, 7];
-// arr.forEach((ele) => new SinglyLinkedList().push(ele));
+// const arr = [1,1,2,3,4,5,6]
+// const arr = [1, 1, 2, 2, 3, 4, 4, 5, 6];
 
 let myNode;
 arr.forEach((ele) => (myNode = new SinglyLinkedList().push(ele)));
