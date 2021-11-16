@@ -78,7 +78,7 @@ class App extends Component {
         return (
             <div>
                 <h1>hello from the Component</h1>
-                <p>{page}</p>
+                <p>Page: {page}</p>
                 <ul>
                     {pokeList.map((ele, idx) => {
                         return <li key={idx}>{ele.name}</li>;
