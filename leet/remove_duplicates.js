@@ -59,7 +59,7 @@ const arr = [1, 2, 3, 4, 5, 6, 7];
 
 let myNode = new SinglyLinkedList();
 
-arr.forEach(ele => myNode.push(ele))
+arr.forEach((ele) => myNode.push(ele));
 // myNode = new SinglyLinkedList().push(2);
 // const node1 = new Node(1);
 // const node2 = new Node(2);
@@ -71,4 +71,8 @@ arr.forEach(ele => myNode.push(ele))
 // const node5 = new Node(5);
 // node4.next = node5;
 
-console.log(myNode);
+var deleteDuplicates = function (head) {
+    console.log(head.head);
+};
+
+deleteDuplicates(myNode);
