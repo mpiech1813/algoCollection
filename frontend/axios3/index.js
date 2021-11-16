@@ -10,18 +10,39 @@ class App extends Component {
             previousNode: '',
             nextNode: '',
         };
-
-        this.getList = this.getList.bind(this);
     }
 
-    getList = async () => {
+    async componentDidMount() {
         try {
             const longList = await entireList(
                 'https://pokeapi.co/api/v2/pokemon'
             );
-            console.log('the long list is: ', longList);
 
-            this.setState({ pokeList: longList.results });
+            console.log(longList);
+
+            this.setState({
+                pokeList: longList.results,
+                previousNode: longList.previous,
+                nextNode: longList.next,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    nextList = async () => {
+        try {
+            const { nextNode } = this.state;
+
+            const nextList = await entireList(nextNode);
+            // console.log(nextNode);
+            // console.log('next!');
+
+            this.setState({
+                pokeList: nextList.results,
+                previousNode: nextList.previous,
+                nextNode: nextList.next,
+            });
         } catch (error) {
             console.log(error);
         }
@@ -29,17 +50,24 @@ class App extends Component {
 
     render() {
         const { pokeList } = this.state;
-        console.log('the state is', pokeList);
+        // console.log('the state is', pokeList);
 
         return (
             <div>
                 <h1>hello from the Component</h1>
-                <button onClick={() => this.getList()}>Click Me!</button>
                 <ul>
                     {pokeList.map((ele, idx) => {
                         return <li key={idx}>{ele.name}</li>;
                     })}
                 </ul>
+                <button
+                    onClick={() => {
+                        console.log('previous');
+                    }}
+                >
+                    Previous
+                </button>
+                <button onClick={() => this.nextList()}>Click Me!</button>
             </div>
         );
     }
