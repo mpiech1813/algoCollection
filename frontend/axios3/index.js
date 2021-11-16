@@ -18,7 +18,7 @@ class App extends Component {
                 'https://pokeapi.co/api/v2/pokemon'
             );
 
-            console.log(longList);
+            // console.log(longList);
 
             this.setState({
                 pokeList: longList.results,
