@@ -29,7 +29,7 @@ class App extends Component {
 
     render() {
         const { pokeList } = this.state;
-        // console.log('the state is', pokeList);
+        console.log('the state is', pokeList);
 
         return (
             <div>
