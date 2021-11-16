@@ -55,8 +55,9 @@ class SinglyLinkedList {
     }
 }
 
-const arr = [1, 2, 3, 4, 5, 6, 7];
+// const arr = [1, 2, 3, 4, 5, 6, 7];
 // const arr = [1];
+const arr = [1, 2];
 // const arr = [1, 2, 3, 4, 4];
 // const arr = [1,1,2,3,4,5,6]
 // const arr = [1, 1, 2, 2, 3, 4, 4, 5, 6];
@@ -79,9 +80,14 @@ var deleteDuplicates = function (head) {
     let currentNode = head.head;
     let nextNode = head.head.next;
 
-    console.log();
+    console.log(currentNode);
 
-    // while (nextNode) {}
+    // while (nextNode !== null) {
+    //     if (currentNode.value === nextNode.value) {
+    //         console.log('current node ', currentNode.value);
+    //         console.log('nextNode ', nextNode.value);
+    //     }
+    // }
 };
 
 deleteDuplicates(myNode);
