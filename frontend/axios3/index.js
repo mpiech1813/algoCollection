@@ -37,7 +37,7 @@ class App extends Component {
                 <button onClick={() => this.getList()}>Click Me!</button>
                 <ul>
                     {pokeList.map((ele, idx) => {
-                        <li key={idx}>hello</li>;
+                        return <li key={idx}>{ele.name}</li>;
                     })}
                 </ul>
             </div>
