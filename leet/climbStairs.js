@@ -58,7 +58,7 @@ var climbStairs = function (n) {
     if (n === 1) return 1;
     if (n === 2) return 2;
 
-    let prev = 2,
-        prevPrev = 1;
+    let prev = 2;
+    let prevPrev = 1;
     let cur;
 };
