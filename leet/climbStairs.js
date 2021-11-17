@@ -60,13 +60,13 @@ var climbStairs = function (n) {
 
     let prev = 2;
     let prevPrev = 1;
-    let cur;
+    let current;
 
     for (let i = 2; i < n; i++) {
-        cur = prev + prevPrev;
+        current = prev + prevPrev;
         prevPrev = prev;
-        prev = cur;
+        prev = current;
     }
 
-    return cur;
+    return current;
 };
