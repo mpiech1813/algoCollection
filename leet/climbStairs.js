@@ -52,3 +52,5 @@
  * 1+2+2
  *
  */
+
+var climbStairs = function (n) {};
