@@ -27,5 +27,12 @@
 /**
  * Approach:
  *
+ * just 1's => longest, will always get the result
+ * just 2's => shortest, only works with evens
+ *
+ * will need the while loop
+ *
+ * launch only 2's if n is even
+ * launch only 1's all the time
  *
  */
