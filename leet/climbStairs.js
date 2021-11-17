@@ -61,4 +61,12 @@ var climbStairs = function (n) {
     let prev = 2;
     let prevPrev = 1;
     let cur;
+
+    for (let i = 2; i < n; i++) {
+        cur = prev + prevPrev;
+        prevPrev = prev;
+        prev = cur;
+    }
+
+    return cur;
 };
