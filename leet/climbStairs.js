@@ -70,3 +70,8 @@ var climbStairs = function (n) {
 
     return current;
 };
+
+/**
+ * Runtime: 68 ms, faster than 88.10% of JavaScript online submissions for Climbing Stairs.
+ * Memory Usage: 38.7 MB, less than 41.37% of JavaScript online submissions for Climbing Stairs.
+ */
