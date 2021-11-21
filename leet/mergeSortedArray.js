@@ -46,36 +46,37 @@
  * return nums1
  */
 
-var merge = function (nums1, nums2) {
+var merge = function (nums1, m, nums2, n) {
     let temp = nums2.shift();
     let idx = nums1.length - 1;
     // console.log('current temp is ', temp);
     // console.log('current idx is ', idx);
+    nums1.splice(m - n, n);
 
-    while (temp !== undefined) {
-        // console.log(nums2);
-        // console.log(nums1);
-        if (nums1[0] === 0) {
-            nums1.splice(idx, 1, temp);
-            temp = nums2.shift();
-        } else if (temp < nums1[0]) {
-            nums1.unshift(temp);
-            temp = nums2.shift();
-            nums1.pop();
-        } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
-            nums1.splice(idx + 1, 0, temp);
-            temp = nums2.shift();
-            idx++;
-            nums1.pop();
-        } else if (temp > nums1[idx - 1] && nums1[idx] === 0) {
-            console.log('i triggered', temp);
-            nums1.splice(idx, 1, temp);
-            temp = nums2.shift();
-            idx++;
-        } else {
-            idx++;
-        }
-    }
+    // while (temp !== undefined) {
+    //     // console.log(nums2);
+    //     // console.log(nums1);
+    //     if (nums1[0] === 0) {
+    //         nums1.splice(idx, 1, temp);
+    //         temp = nums2.shift();
+    //     } else if (temp < nums1[0]) {
+    //         nums1.unshift(temp);
+    //         temp = nums2.shift();
+    //         nums1.pop();
+    //     } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
+    //         nums1.splice(idx + 1, 0, temp);
+    //         temp = nums2.shift();
+    //         idx++;
+    //         nums1.pop();
+    //     } else if (temp > nums1[idx - 1] && nums1[idx] === 0) {
+    //         console.log('i triggered', temp);
+    //         nums1.splice(idx, 1, temp);
+    //         temp = nums2.shift();
+    //         idx++;
+    //     } else {
+    //         idx++;
+    //     }
+    // }
 
     return nums1;
 };
@@ -93,6 +94,8 @@ var merge = function (nums1, nums2) {
 // const nums2 = [1, 2, 3];
 
 const nums1 = [-1, 0, 0, 3, 3, 3, 0, 0, 0];
+const m = nums1.length;
 const nums2 = [1, 2, 2];
+const n = nums2.length;
 
-console.log(merge(nums1, nums2));
+console.log(merge(nums1, m, nums2, n));
