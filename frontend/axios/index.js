@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+// import parse from 'csv-parse';
+import path from 'path';
 
 class App extends Component {
     constructor() {
@@ -22,11 +24,17 @@ class App extends Component {
         }
     }
 
+    onClick = () => {
+        // const file = fs.readStream(path.join(__dirname, '/dummyData.csv'));
+        console.log(path.join(__dirname, '/dummyData.csv'));
+    };
+
     render() {
         const { pokemons } = this.state;
         return (
             <div>
                 <h3>Hello I am working</h3>
+                <button>parse</button>
                 <ul>
                     {pokemons.map((ele, idx) => {
                         return <li key={idx}>{ele.name}</li>;
