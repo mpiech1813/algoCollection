@@ -33,6 +33,10 @@
  * Example 4:
  *
  * Input: nums1 = [1, 1, 2, 3, 4, 5], m = 6, nums2 = [1, 2, 3, 4], n = 4
+ *
+ * Example 5 :
+ *
+ * What if nums2 is larger
  */
 
 /**
@@ -49,8 +53,7 @@
 var merge = function (nums1, m, nums2, n) {
     let temp = nums2.shift();
     let idx = nums1.length - 1;
-    // console.log('current temp is ', temp);
-    // console.log('current idx is ', idx);
+
     nums1.splice(m - n, n);
     idx = 0;
 
@@ -60,18 +63,13 @@ var merge = function (nums1, m, nums2, n) {
     }
 
     while (temp !== undefined && nums1[idx] !== undefined) {
-        // console.log(nums2);
-        // console.log(nums1);
         if (temp < nums1[idx]) {
             nums1.splice(idx, 0, temp);
             temp = nums2.shift();
         } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
             nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
-            // idx++;
-            // nums1.pop();
         } else if (temp > nums1[idx] && nums1[idx + 1] === undefined) {
-            console.log('i triggered', temp);
             nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
             idx++;
