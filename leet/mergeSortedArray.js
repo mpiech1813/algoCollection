@@ -91,4 +91,7 @@ const nums2 = [2, 5, 6];
 // const nums1 = [4, 5, 6, 0, 0, 0];
 // const nums2 = [1, 2, 3];
 
+const nums1 = [-1, 0, 0, 3, 3, 3, 0, 0, 0];
+const nums2 = [1, 2, 2];
+
 console.log(merge(nums1, nums2));
