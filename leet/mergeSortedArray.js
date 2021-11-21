@@ -79,8 +79,8 @@ var merge = function (nums1, nums2) {
     return nums1;
 };
 
-const nums1 = [1, 2, 3, 0, 0, 0];
-const nums2 = [2, 5, 6];
+// const nums1 = [1, 2, 3, 0, 0, 0];
+// const nums2 = [2, 5, 6];
 
 // const nums1 = [1, 1, 2, 3, 4, 5, 0, 0, 0, 0, 0];
 // const nums2 = [1, 2, 3, 4, 6];
