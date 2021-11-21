@@ -58,7 +58,7 @@ var merge = function (nums1, nums2) {
             temp = nums2.shift();
             idx++;
         } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
-            nums1.splice(idx, 0, temp);
+            nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
             idx++;
         } else if (temp > nums1[nums1.length - 1]) {
