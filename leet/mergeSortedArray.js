@@ -48,6 +48,8 @@
 var merge = function (nums1, nums2) {
     let temp = nums2.shift();
     let idx = 0;
+    console.log('current temp is ', temp);
+    console.log('current idx is ', idx);
 
     while (nums2.length) {
         console.log(idx);
@@ -55,10 +57,7 @@ var merge = function (nums1, nums2) {
             nums1.unshift(temp);
             temp = nums2.shift();
             idx++;
-            console.log('current temp is ', temp);
-            console.log('current idx is ', idx);
         } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
-            console.log('i work');
             nums1.splice(idx, 0, temp);
             temp = nums2.shift();
             idx++;
