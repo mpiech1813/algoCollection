@@ -49,7 +49,7 @@ var merge = function (nums1, nums2) {
     let temp = nums2.shift();
     let idx = 0;
 
-    while (nums2.length !== 0) {
+    while (nums2.length) {
         console.log(idx);
         if (temp < nums1[0]) {
             nums1.unshift(temp);
