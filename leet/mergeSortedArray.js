@@ -54,7 +54,10 @@ var merge = function (nums1, nums2) {
     while (temp !== undefined) {
         // console.log(nums2);
         // console.log(nums1);
-        if (temp < nums1[0]) {
+        if (nums1[0] === 0) {
+            nums1.splice(idx, 1, temp);
+            temp = nums2.shift();
+        } else if (temp < nums1[0]) {
             nums1.unshift(temp);
             temp = nums2.shift();
             idx++;
