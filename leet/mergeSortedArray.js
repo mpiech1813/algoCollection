@@ -48,11 +48,11 @@
 var merge = function (nums1, nums2) {
     let temp = nums2.shift();
     let idx = 0;
-    console.log('current temp is ', temp);
-    console.log('current idx is ', idx);
+    // console.log('current temp is ', temp);
+    // console.log('current idx is ', idx);
 
     while (temp !== undefined) {
-        console.log(nums2);
+        // console.log(nums2);
         // console.log(nums1);
         if (temp < nums1[0]) {
             nums1.unshift(temp);
@@ -75,10 +75,10 @@ var merge = function (nums1, nums2) {
     return nums1;
 };
 
-const nums1 = [1, 2, 3];
-const nums2 = [2, 5, 6];
+// const nums1 = [1, 2, 3];
+// const nums2 = [2, 5, 6];
 
-// const nums1 = [1, 1, 2, 3, 4, 5];
-// const nums2 = [1, 2, 3, 4];
+const nums1 = [1, 1, 2, 3, 4, 5];
+const nums2 = [1, 2, 3, 4];
 
 console.log(merge(nums1, nums2));
