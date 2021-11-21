@@ -41,3 +41,5 @@
  * check if temp holder is larger then nums1.length
  * return nums1
  */
+
+var merge = function (nums1, m, nums2, n) {};
