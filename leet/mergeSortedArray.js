@@ -60,7 +60,6 @@ var merge = function (nums1, nums2) {
         } else if (temp < nums1[0]) {
             nums1.unshift(temp);
             temp = nums2.shift();
-            idx++;
             nums1.pop();
         } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
             // console.log('hello');
@@ -86,7 +85,10 @@ var merge = function (nums1, nums2) {
 // const nums1 = [1, 1, 2, 3, 4, 5, 0, 0, 0, 0, 0];
 // const nums2 = [1, 2, 3, 4, 6];
 
-const nums1 = [0];
-const nums2 = [1];
+// const nums1 = [0];
+// const nums2 = [1];
+
+const nums1 = [4, 5, 6, 0, 0, 0];
+const nums2 = [1, 2, 3];
 
 console.log(merge(nums1, nums2));
