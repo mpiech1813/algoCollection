@@ -51,15 +51,15 @@ var merge = function (nums1, nums2) {
     console.log('current temp is ', temp);
     console.log('current idx is ', idx);
 
-    while (nums2.length) {
-        console.log(idx);
-        console.log(nums1);
+    while (temp !== undefined) {
+        console.log(nums2);
+        // console.log(nums1);
         if (temp < nums1[0]) {
             nums1.unshift(temp);
             temp = nums2.shift();
             idx++;
         } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
-            console.log('hello');
+            // console.log('hello');
             nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
             idx++;
@@ -67,13 +67,18 @@ var merge = function (nums1, nums2) {
             nums1.push(temp);
             temp = nums2.shift();
             idx++;
+        } else {
+            idx++;
         }
     }
 
     return nums1;
 };
 
-const nums1 = [1, 1, 2, 3, 4, 5];
-const nums2 = [1, 2, 3, 4];
+const nums1 = [1, 2, 3];
+const nums2 = [2, 5, 6];
+
+// const nums1 = [1, 1, 2, 3, 4, 5];
+// const nums2 = [1, 2, 3, 4];
 
 console.log(merge(nums1, nums2));
