@@ -54,19 +54,18 @@ var merge = function (nums1, m, nums2, n) {
     nums1.splice(m - n, n);
     idx = 0;
 
+    if (nums1[0] === undefined) {
+        nums1.push(temp);
+        temp = nums2.shift();
+    }
+
     while (temp !== undefined && nums1[idx] !== undefined) {
         // console.log(nums2);
         // console.log(nums1);
         if (temp < nums1[idx]) {
             nums1.splice(idx, 0, temp);
             temp = nums2.shift();
-        }
-        // else if (temp < nums1[0]) {
-        // nums1.unshift(temp);
-        // temp = nums2.shift();
-        // nums1.pop();
-        // }
-        else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
+        } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
             nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
             // idx++;
@@ -84,8 +83,8 @@ var merge = function (nums1, m, nums2, n) {
     return nums1;
 };
 
-// const nums1 = [1, 2, 3, 0, 0, 0];
-// const nums2 = [2, 5, 6];
+const nums1 = [1, 2, 3, 0, 0, 0];
+const nums2 = [2, 5, 6];
 
 // const nums1 = [1, 1, 2, 3, 4, 5, 0, 0, 0, 0, 0];
 // const nums2 = [1, 2, 3, 4, 6];
