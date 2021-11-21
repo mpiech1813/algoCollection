@@ -64,6 +64,7 @@ var merge = function (nums1, nums2) {
             temp = nums2.shift();
             idx++;
         } else if (temp > nums1[nums1.length - 1]) {
+            if(nums1[idx === 0]){nums1.}
             nums1.push(temp);
             temp = nums2.shift();
             idx++;
@@ -78,7 +79,7 @@ var merge = function (nums1, nums2) {
 // const nums1 = [1, 2, 3];
 // const nums2 = [2, 5, 6];
 
-const nums1 = [1, 1, 2, 3, 4, 5];
+const nums1 = [1, 1, 2, 3, 4, 5, 0, 0, 0, 0];
 const nums2 = [1, 2, 3, 4];
 
 console.log(merge(nums1, nums2));
