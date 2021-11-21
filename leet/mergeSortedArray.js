@@ -43,7 +43,10 @@
  */
 
 var merge = function (nums1, nums2) {
-    const temp = nums2.shift();
+    let temp = nums2.shift();
+    let idx = 0;
+
+    while (nums2.length) {}
 };
 
 const nums1 = [1, 2, 3];
