@@ -31,3 +31,13 @@
  * Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
  *
  */
+
+/**
+ * create tempholder for ele poped from nums2
+ * create index tracker for nums1 and start at 0
+ * while (nums2.length)
+ * check if tempholder is smaller than nums1[0]
+ * use index tracker to check if tempholder fits between it and it+1
+ * check if temp holder is larger then nums1.length
+ * return nums1
+ */
