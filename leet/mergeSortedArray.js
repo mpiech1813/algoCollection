@@ -54,7 +54,7 @@ var merge = function (nums1, m, nums2, n) {
     nums1.splice(m - n, n);
     idx = 0;
 
-    while (temp !== undefined) {
+    while (temp !== undefined && nums1[idx] !== undefined) {
         // console.log(nums2);
         // console.log(nums1);
         if (temp < nums1[idx]) {
@@ -69,14 +69,14 @@ var merge = function (nums1, m, nums2, n) {
         else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
             nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
-            idx++;
+            // idx++;
             // nums1.pop();
         } else if (temp > nums1[idx] && nums1[idx + 1] === undefined) {
-            nums1.splice(idx, 1, temp);
+            console.log('i triggered', temp);
+            nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
             idx++;
         } else {
-            console.log('i triggered', nums1[idx]);
             idx++;
         }
     }
@@ -96,9 +96,10 @@ var merge = function (nums1, m, nums2, n) {
 // const nums1 = [4, 5, 6, 0, 0, 0];
 // const nums2 = [1, 2, 3];
 
-const nums1 = [-1, 0, 0, 3, 3, 3, 0, 0, 0];
+// const nums1 = [-1, 0, 0, 3, 3, 3, 0, 0, 0];
+// const nums2 = [1, 2, 2];
+
 const m = nums1.length;
-const nums2 = [1, 2, 2];
 const n = nums2.length;
 
 console.log(merge(nums1, m, nums2, n));
