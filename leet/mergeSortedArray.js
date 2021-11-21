@@ -30,6 +30,9 @@
  * The result of the merge is [1].
  * Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
  *
+ * Example 4:
+ *
+ * Input: nums1 = [1, 1, 2, 3, 4, 5], m = 6, nums2 = [1, 2, 3, 4], n = 4
  */
 
 /**
@@ -46,23 +49,27 @@ var merge = function (nums1, nums2) {
     let temp = nums2.shift();
     let idx = 0;
 
-    while (nums2.length) {
+    while (nums2.length !== 0) {
+        console.log(temp);
         if (temp < nums1[0]) {
             nums1.unshift(temp);
-            temp = nums2.shift()
-            idx++
-        } else if (nums1[idx] > temp && temp < nums1[idx+1]){
-            nums1.splice(idx, 0 , temp)
-            temp.shift()
-            idx++
-        } else is (temp > nums1[nums1.length + 1]) {
-            nums1.push(temp)
-            temp.shift()
-            idx++
+            temp = nums2.shift();
+            idx++;
+            console.log('current temp is ', temp);
+            console.log('current idx is ', idx);
+        } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
+            console.log('i work');
+            nums1.splice(idx, 0, temp);
+            temp = nums2.shift();
+            idx++;
+        } else if (temp > nums1[nums1.length + 1]) {
+            nums1.push(temp);
+            temp = nums2.shift();
+            idx++;
         }
     }
 
-    return nums1
+    return nums1;
 };
 
 const nums1 = [1, 2, 3];
