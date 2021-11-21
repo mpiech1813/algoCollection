@@ -33,7 +33,7 @@
  */
 
 /**
- * create tempholder for ele poped from nums2
+ * create tempholder for ele shift from nums2
  * create index tracker for nums1 and start at 0
  * while (nums2.length)
  * check if tempholder is smaller than nums1[0]
@@ -42,4 +42,11 @@
  * return nums1
  */
 
-var merge = function (nums1, m, nums2, n) {};
+var merge = function (nums1, nums2) {
+    const temp = nums2.shift();
+};
+
+const nums1 = [1, 2, 3];
+const nums2 = [2, 5, 6];
+
+console.log(merge(nums1, nums2));
