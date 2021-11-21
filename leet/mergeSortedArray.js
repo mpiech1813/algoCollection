@@ -46,7 +46,23 @@ var merge = function (nums1, nums2) {
     let temp = nums2.shift();
     let idx = 0;
 
-    while (nums2.length) {}
+    while (nums2.length) {
+        if (temp < nums1[0]) {
+            nums1.unshift(temp);
+            temp = nums2.shift()
+            idx++
+        } else if (nums1[idx] > temp && temp < nums1[idx+1]){
+            nums1.splice(idx, 0 , temp)
+            temp.shift()
+            idx++
+        } else is (temp > nums1[nums1.length + 1]) {
+            nums1.push(temp)
+            temp.shift()
+            idx++
+        }
+    }
+
+    return nums1
 };
 
 const nums1 = [1, 2, 3];
