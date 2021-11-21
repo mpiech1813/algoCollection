@@ -36,6 +36,7 @@
  */
 
 /**
+ * start at nums1[nums1.length -1] move n spaces towards the front, remove trailing 0s
  * create tempholder for ele shift from nums2
  * create index tracker for nums1 and start at 0
  * while (nums2.length)
@@ -47,7 +48,7 @@
 
 var merge = function (nums1, nums2) {
     let temp = nums2.shift();
-    let idx = 0;
+    let idx = nums1.length - 1;
     // console.log('current temp is ', temp);
     // console.log('current idx is ', idx);
 
@@ -62,12 +63,12 @@ var merge = function (nums1, nums2) {
             temp = nums2.shift();
             nums1.pop();
         } else if (nums1[idx] <= temp && temp <= nums1[idx + 1]) {
-            // console.log('hello');
             nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
             idx++;
             nums1.pop();
         } else if (temp > nums1[idx - 1] && nums1[idx] === 0) {
+            console.log('i triggered', temp);
             nums1.splice(idx, 1, temp);
             temp = nums2.shift();
             idx++;
