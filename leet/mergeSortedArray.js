@@ -63,9 +63,8 @@ var merge = function (nums1, nums2) {
             nums1.splice(idx + 1, 0, temp);
             temp = nums2.shift();
             idx++;
-        } else if (temp > nums1[nums1.length - 1]) {
-            if(nums1[idx === 0]){nums1.}
-            nums1.push(temp);
+        } else if (temp > nums1[idx - 1] && nums[idx] === 0) {
+            nums1.splice(idx, 1, temp);
             temp = nums2.shift();
             idx++;
         } else {
