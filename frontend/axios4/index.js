@@ -6,9 +6,9 @@ function App() {
     const [pokeList, setPokeList] = useState([]);
 
     useEffect(async () => {
-        const list = (await axios.get('https://pokeapi.co/api/v2/pokemon')).data
-            .results;
-        setPokeList(list);
+        const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
+            .data;
+        setPokeList(list).results;
         console.log(pokeList);
     }, []);
 
@@ -20,6 +20,8 @@ function App() {
                     return <li>{ele.name}</li>;
                 })}
             </ul>
+            <button>Previous</button>
+            <button>Next</button>
         </div>
     );
 }
