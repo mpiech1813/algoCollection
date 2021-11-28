@@ -7,13 +7,18 @@ function App() {
     const [nextList, setNextList] = useState('');
     const [previousList, setPreviousList] = useState('');
 
+    async function getNode(link) {
+        const node = (await axios.get(`${link}`)).data;
+
+        console.log(node);
+        setPokeList(node.results);
+        setPreviousList(node.previous);
+        setNextList(node.next);
+    }
+
     useEffect(async () => {
-        const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
-            .data;
-        console.log(list);
-        setPokeList(list.results);
-        setPreviousList(list.previous);
-        setNextList(list.next);
+        const link = 'https://pokeapi.co/api/v2/pokemon';
+        await getNode(link);
     }, []);
 
     return (
@@ -24,8 +29,8 @@ function App() {
                     return <li key={idx}>{ele.name}</li>;
                 })}
             </ul>
-            <button>Previous</button>
-            <button>Next</button>
+            <button onClick={() => getNode(previousList)}>Previous</button>
+            <button onClick={() => getNode(nextList)}>Next</button>
         </div>
     );
 }
