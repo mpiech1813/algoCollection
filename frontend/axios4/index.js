@@ -4,23 +4,21 @@ import axios from 'axios';
 
 function App() {
     const [pokeList, setPokeList] = useState([]);
-    // const [nextList, setNextList] = useState('');
-    // const [previousList, setPreviousList] = useState('null');
+    const [nextList, setNextList] = useState('');
+    const [previousList, setPreviousList] = useState('null');
 
     useEffect(async () => {
         const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
             .data;
         setPokeList(list.results);
-
-        console.log(pokeList);
     }, []);
 
     return (
         <div>
             <h1>Hello World</h1>
             <ul>
-                {pokeList.map((ele) => {
-                    return <li>{ele.name}</li>;
+                {pokeList.map((ele, idx) => {
+                    return <li key={idx}>{ele.name}</li>;
                 })}
             </ul>
             <button>Previous</button>
