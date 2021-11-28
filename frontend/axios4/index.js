@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 function App() {
     const [pokeList, setPokeList] = useState('');
 
+    useEffect(() => {});
+
     return (
         <div>
             <h1>Hello World</h1>
