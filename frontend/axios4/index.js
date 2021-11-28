@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
 function App() {
-    const [pokeList, setList] = useState;
+    const [pokeList, setPokeList] = useState('');
 
     return (
         <div>
@@ -11,6 +11,6 @@ function App() {
     );
 }
 
-const root = getElementById('app');
+const root = document.getElementById('app');
 
 ReactDOM.render(<App />, root);
