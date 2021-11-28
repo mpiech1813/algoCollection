@@ -5,12 +5,15 @@ import axios from 'axios';
 function App() {
     const [pokeList, setPokeList] = useState([]);
     const [nextList, setNextList] = useState('');
-    const [previousList, setPreviousList] = useState('null');
+    const [previousList, setPreviousList] = useState('');
 
     useEffect(async () => {
         const list = (await axios.get('https://pokeapi.co/api/v2/pokemon'))
             .data;
+        console.log(list);
         setPokeList(list.results);
+        setPreviousList(list.previous);
+        setNextList(list.next);
     }, []);
 
     return (
