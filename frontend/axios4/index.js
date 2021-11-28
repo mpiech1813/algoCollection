@@ -10,7 +10,6 @@ function App() {
     async function getNode(link) {
         const node = (await axios.get(`${link}`)).data;
 
-        console.log(node);
         setPokeList(node.results);
         setPreviousList(node.previous);
         setNextList(node.next);
@@ -29,7 +28,12 @@ function App() {
                     return <li key={idx}>{ele.name}</li>;
                 })}
             </ul>
-            <button onClick={() => getNode(previousList)}>Previous</button>
+            <button
+                disabled={!previousList}
+                onClick={() => getNode(previousList)}
+            >
+                Previous
+            </button>
             <button onClick={() => getNode(nextList)}>Next</button>
         </div>
     );
