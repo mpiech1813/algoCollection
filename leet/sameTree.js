@@ -58,5 +58,12 @@ does not: return false, then do the same for right branch
  */
 
 var isSameTree = function (p, q) {
+  if (p.val !== q.val) {
+    return false;
+  } else {
+    isSameTree(p.left, q.left);
+    isSameTree(p.right, q.right);
+  }
+
   return true;
 };
