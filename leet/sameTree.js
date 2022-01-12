@@ -60,10 +60,10 @@ does not: return false, then do the same for right branch
 var isSameTree = function (p, q) {
   if (p.val !== q.val) {
     return false;
+  } else if (p.val === null && q.val === null) {
+    return true;
   } else {
     isSameTree(p.left, q.left);
     isSameTree(p.right, q.right);
   }
-
-  return true;
 };
