@@ -45,3 +45,20 @@ A:
 does not: return false, then do the same for right branch
 - Return true at if false was never encountered
 */
+
+// Code:
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+
+var isSameTree = function (p, q) {
+  const compare = (p, q) => {};
+
+  const nextPath = (p, q) => {};
+};
