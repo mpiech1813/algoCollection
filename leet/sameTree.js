@@ -58,12 +58,11 @@ does not: return false, then do the same for right branch
  */
 
 var isSameTree = function (p, q) {
-  if (p.val === null && q.val === null) {
+  if (!p && !q) {
     return true;
-  } else if (p.val !== q.val) {
-    return false;
-  } else {
-    isSameTree(p.left, q.left);
-    isSameTree(p.right, q.right);
   }
+  if ((!p && q) || (p && !q) || p.val !== q.val) {
+    return false;
+  }
+  return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 };
