@@ -58,7 +58,11 @@ does not: return false, then do the same for right branch
  */
 
 var isSameTree = function (p, q) {
-  const compare = (p, q) => {};
-
-  const nextPath = (p, q) => {};
+  if (p.val !== q.val) {
+    return false;
+  } else if (p.left !== null && q.left !== null) {
+    isSameTree(p.left, q.left);
+  } else if (p.right !== null && q.right !== null) {
+    isSameTree(p.right, q.right);
+  }
 };
