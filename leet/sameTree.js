@@ -26,4 +26,22 @@ Output: false
 
                 1                                           1
             2       1                                   1       2
+
+
+
+Input: p = [1,2,3], q = [1,2]
+Output: false
+
+                1                                           1
+            2       3                                   2       
+
+
+
+A:
+
+- Select the first node in each of the trees
+- First function: compare the values of the 2 nodes: if the same pass to the next function, if not return false
+- Second function: check if current nodes (from both trees) have left branch, if both do pass the left nodes to the first function, if one 
+does not: return false, then do the same for right branch
+- Return true at if false was never encountered
 */
