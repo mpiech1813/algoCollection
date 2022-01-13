@@ -47,3 +47,8 @@ function lookUpProfile(name, prop) {
 }
 
 lookUpProfile("Akira", "likes");
+lookUpProfile("Kristian", "lastName");
+lookUpProfile("Sherlock", "likes");
+lookUpProfile("Harry", "likes");
+lookUpProfile("Bob", "number");
+lookUpProfile("Bob", "potato");
