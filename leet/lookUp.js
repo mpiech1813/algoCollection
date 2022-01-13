@@ -33,7 +33,8 @@ function lookUpProfile(name, prop) {
 
   contacts.forEach((ele) => {
     if (ele.firstName === name) {
-       if(ele[prop] !== undefined)
+      if (ele[prop] !== undefined) {
+      }
     }
   });
 
