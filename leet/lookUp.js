@@ -36,6 +36,7 @@ function lookUpProfile(name, prop) {
       if (ele[prop] !== undefined) {
         finalResult = ele[prop];
       } else {
+        finalResult = "No such property";
       }
     }
   });
