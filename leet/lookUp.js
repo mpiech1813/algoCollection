@@ -33,11 +33,7 @@ function lookUpProfile(name, prop) {
 
   contacts.forEach((ele) => {
     if (ele.firstName === name) {
-      if (ele.prop) {
-        finalResult = ele.prop;
-      } else {
-        finalResult = "No such property";
-      }
+      finalResult = ele[prop];
     }
   });
 
@@ -46,9 +42,9 @@ function lookUpProfile(name, prop) {
   // Only change code above this line
 }
 
-lookUpProfile("Akira", "likes");
-lookUpProfile("Kristian", "lastName");
-lookUpProfile("Sherlock", "likes");
-lookUpProfile("Harry", "likes");
-lookUpProfile("Bob", "number");
-lookUpProfile("Bob", "potato");
+console.log(lookUpProfile("Akira", "likes"));
+console.log(lookUpProfile("Kristian", "lastName"));
+console.log(lookUpProfile("Sherlock", "likes"));
+console.log(lookUpProfile("Harry", "likes"));
+console.log(lookUpProfile("Bob", "number"));
+console.log(lookUpProfile("Bob", "potato"));
