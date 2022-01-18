@@ -18,4 +18,12 @@ Output: 2
 
 /*
 A:
+
+- have a global variable to keep track of the longest branch, start at 1 point
+- use the transversal method that checks for the left branch first
+- create a local variable to keep track of the current progression 
+- with each transversal we are going to add 1 point to the local variable
+- if we are unable to travel downn to either left nor right we will compare local vs global. if local > global => global = local
+- return global variable
+
 */
