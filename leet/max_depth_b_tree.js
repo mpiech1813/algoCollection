@@ -27,3 +27,5 @@ A:
 - return global variable
 
 */
+
+// C:
