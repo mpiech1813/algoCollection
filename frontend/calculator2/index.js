@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class App extends Component {
+export default class App extends Component {
     constructor() {
         super();
         this.state = {
@@ -106,5 +106,3 @@ class App extends Component {
 const root = document.getElementById('root');
 
 ReactDOM.render(<App />, root);
-
-export default App

@@ -1,7 +1,12 @@
 import {mount} from '@cypress/react'
 import App from '../../../index'
 
-it('is able to access the site', ()=>{
-    mount(<App />)
-    crypto.get().should()
+describe('calculator app', ()=>{
+    // beforeEach(()=>{
+    //     cy.visit(App)
+    // })
+    mount(App)
+    it('can be displayed', ()=>{
+        cy.get('h1').contains('Display: ')
+    })
 })
