@@ -23,8 +23,12 @@ function decodeMorse(morseCode) {
     // break the string into individual words
     arrayOfWords = morseCode.split('   ');
     // check and remove empty spaces
-    arrayOfWords[0] === '' ? arrayOfWords.shift() : '';
-    arrayOfWords[arrayOfWords.length - 1] === '' ? arrayOfWords.pop() : '';
+    while (arrayOfWords[0] === '') {
+        arrayOfWords.shift();
+    }
+    while (arrayOfWords[arrayOfWords.length - 1] === '') {
+        arrayOfWords.pop();
+    }
     translatedLetters = arrayOfWords.map((word) => {
         // break words into letters
         return (word
@@ -50,3 +54,10 @@ console.log(decodeMorse('.   .   '));
 ('E E ');
 console.log(decodeMorse('   .   .   '));
 (' E E ');
+console.log(decodeMorse('      .   .   '));
+('  E E ');
+console.log(decodeMorse('         .   .   '));
+('   E E ');
+console.log(decodeMorse('      .   .      '));
+('  E E  ');
+// SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
