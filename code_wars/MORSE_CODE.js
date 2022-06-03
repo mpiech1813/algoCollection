@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const MORSE_CODE = {
+exports.default = {
     '-.-.--': '!',
     '.-..-.': '"',
     '...-..-': '$',
@@ -57,4 +57,3 @@ const MORSE_CODE = {
     '..--.-': '_',
     '...---...': 'SOS',
 };
-exports.default = MORSE_CODE;

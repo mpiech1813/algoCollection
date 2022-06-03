@@ -1,6 +1,9 @@
 "use strict";
 // extra spaces before or after should be ignores
 // treat SOS as special character
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.decodeMorse = void 0;
 // go letter by letter
@@ -12,18 +15,22 @@ exports.decodeMorse = void 0;
 // if single space, ignore it and proceed to next letter
 // if tripple space, add space to final sentence
 // return final sentence
-const MORSE_CODE_1 = require("./MORSE_CODE");
+const MORSE_CODE_1 = __importDefault(require("./MORSE_CODE"));
 function decodeMorse(morseCode) {
     // your code here
     let finalSentence;
-    let arrayOfLetters;
-    arrayOfLetters = morseCode.split('   ');
-    finalSentence = arrayOfLetters
-        .map((letter) => {
-        MORSE_CODE_1.MORSE_CODE[letter];
-    })
-        .join(' ');
-    return finalSentence;
+    let arrayOfWords;
+    let translatedLetters;
+    arrayOfWords = morseCode.split('   ');
+    translatedLetters = arrayOfWords.map((word) => {
+        return word
+            .split(' ')
+            .map((letter) => {
+            return MORSE_CODE_1.default[letter];
+        })
+            .join('');
+    });
+    return (finalSentence = translatedLetters.join(' '));
 }
 exports.decodeMorse = decodeMorse;
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));

@@ -11,20 +11,25 @@
 // if tripple space, add space to final sentence
 // return final sentence
 
-import { MORSE_CODE } from './MORSE_CODE';
+import MORSE_CODE from './MORSE_CODE';
 export function decodeMorse(morseCode: string): string {
   // your code here
   let finalSentence: string;
-  let arrayOfLetters: string[];
+  let arrayOfWords: string[];
+  let translatedLetters: string[];
 
-  arrayOfLetters = morseCode.split('   ');
-  finalSentence = arrayOfLetters
-    .map((letter: string) => {
-      MORSE_CODE[letter];
-    })
-    .join(' ');
+  arrayOfWords = morseCode.split('   ');
 
-  return finalSentence;
+  translatedLetters = arrayOfWords.map((word: string) => {
+    return word
+      .split(' ')
+      .map((letter: string) => {
+        return MORSE_CODE[letter];
+      })
+      .join('');
+  });
+
+  return (finalSentence = translatedLetters.join(' '));
 }
 
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
