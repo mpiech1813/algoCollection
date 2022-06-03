@@ -16,16 +16,39 @@ export function decodeMorse(morseCode: string): string {
   let arrayOfWords: string[];
   let translatedLetters: string[];
 
-  // break the string into individual words
-  arrayOfWords = morseCode.split('   ');
+  // check and remove empty spaces, will be used later
+  const checkEmptySpaces = () => {
+    while (arrayOfWords[0] === '' || arrayOfWords[0] === ' ') {
+      arrayOfWords.shift();
+    }
+    while (
+      arrayOfWords[arrayOfWords.length - 1] === '' ||
+      arrayOfWords[arrayOfWords.length - 1].startsWith(' ')
+    ) {
+      arrayOfWords.pop();
+    }
+  };
 
-  // check and remove empty spaces
-  while (arrayOfWords[0] === '') {
-    arrayOfWords.shift();
+  // break the string into individual words
+  if (morseCode.length > 3) {
+    arrayOfWords = morseCode.split('   ');
+    checkEmptySpaces();
+  } else {
+    arrayOfWords = morseCode.split('');
+    checkEmptySpaces();
+    arrayOfWords = [arrayOfWords.join('')];
   }
-  while (arrayOfWords[arrayOfWords.length - 1] === '') {
-    arrayOfWords.pop();
-  }
+
+  //   // check and remove empty spaces
+  //   while (arrayOfWords[0] === '' || arrayOfWords[0] === ' ') {
+  //     arrayOfWords.shift();
+  //   }
+  //   while (
+  //     arrayOfWords[arrayOfWords.length - 1] === '' ||
+  //     arrayOfWords[arrayOfWords.length - 1].startsWith(' ')
+  //   ) {
+  //     arrayOfWords.pop();
+  //   }
 
   translatedLetters = arrayOfWords.map((word: string) => {
     // break words into letters
@@ -33,11 +56,7 @@ export function decodeMorse(morseCode: string): string {
       word
         .split(' ')
         // translate each letter from morse to latin
-        .map((letter: string) => {
-          if (letter !== '   ') {
-            return MORSE_CODE[letter];
-          }
-        })
+        .map((letter: string) => MORSE_CODE[letter])
         // combine latin letters into words
         .join('')
     );
@@ -45,6 +64,8 @@ export function decodeMorse(morseCode: string): string {
 
   // return final sentence
   return (finalSentence = translatedLetters.join(' '));
+  //   return arrayOfWords;
+  //   return translatedLetters;
 }
 
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
@@ -66,4 +87,17 @@ console.log(decodeMorse('         .   .   '));
 console.log(decodeMorse('      .   .      '));
 ('  E E  ');
 
-// SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+console.log(
+  decodeMorse(
+    `      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-     `
+  )
+);
+
+console.log(
+  decodeMorse(
+    ' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'
+  )
+);
+
+console.log(decodeMorse(' . ')); // E
+console.log(decodeMorse('. '));

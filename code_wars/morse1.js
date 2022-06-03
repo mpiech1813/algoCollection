@@ -20,30 +20,49 @@ function decodeMorse(morseCode) {
     let finalSentence;
     let arrayOfWords;
     let translatedLetters;
+    // check and remove empty spaces, will be used later
+    const checkEmptySpaces = () => {
+        while (arrayOfWords[0] === '' || arrayOfWords[0] === ' ') {
+            arrayOfWords.shift();
+        }
+        while (arrayOfWords[arrayOfWords.length - 1] === '' ||
+            arrayOfWords[arrayOfWords.length - 1].startsWith(' ')) {
+            arrayOfWords.pop();
+        }
+    };
     // break the string into individual words
-    arrayOfWords = morseCode.split('   ');
-    // check and remove empty spaces
-    while (arrayOfWords[0] === '') {
-        arrayOfWords.shift();
+    if (morseCode.length > 3) {
+        arrayOfWords = morseCode.split('   ');
+        checkEmptySpaces();
     }
-    while (arrayOfWords[arrayOfWords.length - 1] === '') {
-        arrayOfWords.pop();
+    else {
+        arrayOfWords = morseCode.split('');
+        checkEmptySpaces();
+        arrayOfWords = [arrayOfWords.join('')];
     }
+    //   // check and remove empty spaces
+    //   while (arrayOfWords[0] === '' || arrayOfWords[0] === ' ') {
+    //     arrayOfWords.shift();
+    //   }
+    //   while (
+    //     arrayOfWords[arrayOfWords.length - 1] === '' ||
+    //     arrayOfWords[arrayOfWords.length - 1].startsWith(' ')
+    //   ) {
+    //     arrayOfWords.pop();
+    //   }
     translatedLetters = arrayOfWords.map((word) => {
         // break words into letters
         return (word
             .split(' ')
             // translate each letter from morse to latin
-            .map((letter) => {
-            if (letter !== '   ') {
-                return MORSE_CODE_1.default[letter];
-            }
-        })
+            .map((letter) => MORSE_CODE_1.default[letter])
             // combine latin letters into words
             .join(''));
     });
     // return final sentence
     return (finalSentence = translatedLetters.join(' '));
+    //   return arrayOfWords;
+    //   return translatedLetters;
 }
 exports.decodeMorse = decodeMorse;
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
@@ -60,4 +79,7 @@ console.log(decodeMorse('         .   .   '));
 ('   E E ');
 console.log(decodeMorse('      .   .      '));
 ('  E E  ');
-// SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+console.log(decodeMorse(`      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-     `));
+console.log(decodeMorse(' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'));
+console.log(decodeMorse(' . ')); // E
+console.log(decodeMorse('. '));
