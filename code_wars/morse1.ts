@@ -19,10 +19,8 @@ export function decodeMorse(morseCode: string): string {
   // break the string into individual words
   if (morseCode.length > 3) {
     arrayOfWords = morseCode.split('   ');
-    // checkEmptySpaces();
   } else {
     arrayOfWords = morseCode.split('');
-    // checkEmptySpaces();
     arrayOfWords = [arrayOfWords.join('')];
   }
 
@@ -76,4 +74,4 @@ console.log(
 );
 
 console.log(decodeMorse(' . ')); // E
-console.log(decodeMorse('.-'));
+console.log(decodeMorse('--..'));

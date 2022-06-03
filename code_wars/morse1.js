@@ -23,11 +23,9 @@ function decodeMorse(morseCode) {
     // break the string into individual words
     if (morseCode.length > 3) {
         arrayOfWords = morseCode.split('   ');
-        // checkEmptySpaces();
     }
     else {
         arrayOfWords = morseCode.split('');
-        // checkEmptySpaces();
         arrayOfWords = [arrayOfWords.join('')];
     }
     translatedLetters = arrayOfWords.map((word) => {
@@ -62,4 +60,4 @@ console.log(decodeMorse('      .   .      '));
 console.log(decodeMorse(`      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-     `));
 console.log(decodeMorse(' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'));
 console.log(decodeMorse(' . ')); // E
-console.log(decodeMorse('.-'));
+console.log(decodeMorse('--..'));
