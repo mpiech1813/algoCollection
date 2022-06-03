@@ -40,16 +40,6 @@ function decodeMorse(morseCode) {
         checkEmptySpaces();
         arrayOfWords = [arrayOfWords.join('')];
     }
-    //   // check and remove empty spaces
-    //   while (arrayOfWords[0] === '' || arrayOfWords[0] === ' ') {
-    //     arrayOfWords.shift();
-    //   }
-    //   while (
-    //     arrayOfWords[arrayOfWords.length - 1] === '' ||
-    //     arrayOfWords[arrayOfWords.length - 1].startsWith(' ')
-    //   ) {
-    //     arrayOfWords.pop();
-    //   }
     translatedLetters = arrayOfWords.map((word) => {
         // break words into letters
         return (word
@@ -61,8 +51,6 @@ function decodeMorse(morseCode) {
     });
     // return final sentence
     return (finalSentence = translatedLetters.join(' '));
-    //   return arrayOfWords;
-    //   return translatedLetters;
 }
 exports.decodeMorse = decodeMorse;
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
