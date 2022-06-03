@@ -16,23 +16,42 @@ export function decodeMorse(morseCode: string): string {
   let arrayOfWords: string[];
   let translatedLetters: string[];
 
+  // break the string into individual words
   arrayOfWords = morseCode.split('   ');
 
+  // check and remove empty spaces
+  arrayOfWords[0] === '' ? arrayOfWords.shift() : '';
+  arrayOfWords[arrayOfWords.length - 1] === '' ? arrayOfWords.pop() : '';
+
   translatedLetters = arrayOfWords.map((word: string) => {
-    return word
-      .split(' ')
-      .map((letter: string) => {
-        return MORSE_CODE[letter];
-      })
-      .join('');
+    // break words into letters
+    return (
+      word
+        .split(' ')
+        // translate each letter from morse to latin
+        .map((letter: string) => {
+          if (letter !== '   ') {
+            return MORSE_CODE[letter];
+          }
+        })
+        // combine latin letters into words
+        .join('')
+    );
   });
 
+  // return final sentence
   return (finalSentence = translatedLetters.join(' '));
 }
 
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
 console.log(
   decodeMorse(
-    ' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'
+    '   -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'
   )
 );
+console.log(decodeMorse('   .   .'));
+(' E E');
+console.log(decodeMorse('.   .   '));
+('E E ');
+console.log(decodeMorse('   .   .   '));
+(' E E ');

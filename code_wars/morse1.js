@@ -20,17 +20,33 @@ function decodeMorse(morseCode) {
     let finalSentence;
     let arrayOfWords;
     let translatedLetters;
+    // break the string into individual words
     arrayOfWords = morseCode.split('   ');
+    // check and remove empty spaces
+    arrayOfWords[0] === '' ? arrayOfWords.shift() : '';
+    arrayOfWords[arrayOfWords.length - 1] === '' ? arrayOfWords.pop() : '';
     translatedLetters = arrayOfWords.map((word) => {
-        return word
+        // break words into letters
+        return (word
             .split(' ')
+            // translate each letter from morse to latin
             .map((letter) => {
-            return MORSE_CODE_1.default[letter];
+            if (letter !== '   ') {
+                return MORSE_CODE_1.default[letter];
+            }
         })
-            .join('');
+            // combine latin letters into words
+            .join(''));
     });
+    // return final sentence
     return (finalSentence = translatedLetters.join(' '));
 }
 exports.decodeMorse = decodeMorse;
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
-console.log(decodeMorse(' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'));
+console.log(decodeMorse('   -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'));
+console.log(decodeMorse('   .   .'));
+(' E E');
+console.log(decodeMorse('.   .   '));
+('E E ');
+console.log(decodeMorse('   .   .   '));
+(' E E ');
