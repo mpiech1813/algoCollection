@@ -32,10 +32,10 @@ export function decodeMorse(morseCode: string): string {
   // break the string into individual words
   if (morseCode.length > 3) {
     arrayOfWords = morseCode.split('   ');
-    checkEmptySpaces();
+    // checkEmptySpaces();
   } else {
     arrayOfWords = morseCode.split('');
-    checkEmptySpaces();
+    // checkEmptySpaces();
     arrayOfWords = [arrayOfWords.join('')];
   }
 
@@ -52,7 +52,9 @@ export function decodeMorse(morseCode: string): string {
   });
 
   // return final sentence
-  return (finalSentence = translatedLetters.join(' '));
+  //   return (finalSentence = translatedLetters.join(' '));
+  //   return arrayOfWords;
+  return translatedLetters.join(' ').trim();
 }
 
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
@@ -87,4 +89,4 @@ console.log(
 );
 
 console.log(decodeMorse(' . ')); // E
-console.log(decodeMorse('. '));
+console.log(decodeMorse('.-'));
