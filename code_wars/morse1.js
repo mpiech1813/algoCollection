@@ -39,8 +39,6 @@ function decodeMorse(morseCode) {
     });
     // return final sentence
     return (finalSentence = translatedLetters.join(' ').trim());
-    //   return arrayOfWords;
-    //   return translatedLetters.join(' ').trim();
 }
 exports.decodeMorse = decodeMorse;
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));

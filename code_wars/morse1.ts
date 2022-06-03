@@ -38,8 +38,6 @@ export function decodeMorse(morseCode: string): string {
 
   // return final sentence
   return (finalSentence = translatedLetters.join(' ').trim());
-  //   return arrayOfWords;
-  //   return translatedLetters.join(' ').trim();
 }
 
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
