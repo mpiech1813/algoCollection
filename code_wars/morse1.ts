@@ -1,6 +1,4 @@
 // extra spaces before or after should be ignores
-// treat SOS as special character
-
 // go letter by letter
 // take the string and convert it into array
 // if first or last character is ' ' ignore it
@@ -33,3 +31,8 @@ export function decodeMorse(morseCode: string): string {
 }
 
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
+console.log(
+  decodeMorse(
+    ' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'
+  )
+);

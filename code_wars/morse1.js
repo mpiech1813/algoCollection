@@ -1,11 +1,5 @@
 "use strict";
 // extra spaces before or after should be ignores
-// treat SOS as special character
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.decodeMorse = void 0;
 // go letter by letter
 // take the string and convert it into array
 // if first or last character is ' ' ignore it
@@ -15,6 +9,11 @@ exports.decodeMorse = void 0;
 // if single space, ignore it and proceed to next letter
 // if tripple space, add space to final sentence
 // return final sentence
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.decodeMorse = void 0;
 const MORSE_CODE_1 = __importDefault(require("./MORSE_CODE"));
 function decodeMorse(morseCode) {
     // your code here
@@ -34,3 +33,4 @@ function decodeMorse(morseCode) {
 }
 exports.decodeMorse = decodeMorse;
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
+console.log(decodeMorse(' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'));
