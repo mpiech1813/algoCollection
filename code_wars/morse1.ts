@@ -16,26 +16,11 @@ export function decodeMorse(morseCode: string): string {
   let arrayOfWords: string[];
   let translatedLetters: string[];
 
-  // check and remove empty spaces, will be used later
-  const checkEmptySpaces = () => {
-    while (arrayOfWords[0] === '' || arrayOfWords[0] === ' ') {
-      arrayOfWords.shift();
-    }
-    while (
-      arrayOfWords[arrayOfWords.length - 1] === '' ||
-      arrayOfWords[arrayOfWords.length - 1].startsWith(' ')
-    ) {
-      arrayOfWords.pop();
-    }
-  };
-
   // break the string into individual words
   if (morseCode.length > 3) {
     arrayOfWords = morseCode.split('   ');
-    checkEmptySpaces();
   } else {
     arrayOfWords = morseCode.split('');
-    checkEmptySpaces();
     arrayOfWords = [arrayOfWords.join('')];
   }
 
@@ -52,7 +37,7 @@ export function decodeMorse(morseCode: string): string {
   });
 
   // return final sentence
-  return (finalSentence = translatedLetters.join(' '));
+  return (finalSentence = translatedLetters.join(' ').trim());
 }
 
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
@@ -87,4 +72,4 @@ console.log(
 );
 
 console.log(decodeMorse(' . ')); // E
-console.log(decodeMorse('. '));
+console.log(decodeMorse('--..'));
