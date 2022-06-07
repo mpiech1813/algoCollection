@@ -22,7 +22,7 @@ export const decodeBits = (bits: string) => {
   let dot: number = 0
   let dash: number = 0
   let temp: number = 0
-  const bitsArray: string[] = bits.split('')
+  let bitsArray: string[] = bits.split('')
 
   for (let i = 0; i <= bitsArray.length; i++){
       if( bitsArray[i] === '1' && bitsArray[i+1] === '1'){
@@ -34,10 +34,12 @@ export const decodeBits = (bits: string) => {
           temp = 0
       }
   }
+  bitsArray = bits.split('0'.repeat(dash))
 
-  const result = `dots: ${dot}
-  dashes: ${dash}`
-  return result
+//   const result = `dots: ${dot}
+//   dashes: ${dash}`
+//   return result
+return bitsArray
 };
 
 export const decodeMorse = (morseCode: string) => {
