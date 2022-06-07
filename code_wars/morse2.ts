@@ -16,12 +16,11 @@ import {decodeMorse} from './morse1'
 export const decodeBits = (bits: string) => {
   // ToDo: Accept 0's and 1's, return dots, dashes and spaces
 
-  // trims unnecessary 0's at the begging and end
-
   // establish time unit dot = 2 or 1
   let dot: number = 0
   let dash: number = 0
   let temp: number = 0
+  // split bits into an array of individual characters to determine time unit
   let bitsArray: string[] = bits.split('')
 
   for (let i = 0; i <= bitsArray.length; i++){
@@ -35,7 +34,7 @@ export const decodeBits = (bits: string) => {
       }
   }
 
-  // splits into an array of characters in bits
+  // split bits into an array of words in bits
   bitsArray = bits.split('0'.repeat(dash))
 
   // translate bits to dots and dashes
@@ -43,8 +42,7 @@ export const decodeBits = (bits: string) => {
     // check for spaces between words
     if(word === '') return word.replaceAll('', '  ')  
     
-    // breaks up into 11 or 111111
-      return word.replaceAll('1'.repeat(dash), '-').replaceAll('0'.repeat(dot), '').replaceAll('1'.repeat(dot), '.')
+    return word.replaceAll('1'.repeat(dash), '-').replaceAll('0'.repeat(dot), '').replaceAll('1'.repeat(dot), '.')
   }).join(' ')
 
   return result

@@ -9,11 +9,11 @@ exports.decodeBits = void 0;
 const morse1_1 = require("./morse1");
 const decodeBits = (bits) => {
     // ToDo: Accept 0's and 1's, return dots, dashes and spaces
-    // trims unnecessary 0's at the begging and end
     // establish time unit dot = 2 or 1
     let dot = 0;
     let dash = 0;
     let temp = 0;
+    // split bits into an array of individual characters to determine time unit
     let bitsArray = bits.split('');
     for (let i = 0; i <= bitsArray.length; i++) {
         if (bitsArray[i] === '1' && bitsArray[i + 1] === '1') {
@@ -26,14 +26,13 @@ const decodeBits = (bits) => {
             temp = 0;
         }
     }
-    // splits into an array of characters in bits
+    // split bits into an array of words in bits
     bitsArray = bits.split('0'.repeat(dash));
     // translate bits to dots and dashes
     const result = bitsArray.map((word) => {
         // check for spaces between words
         if (word === '')
             return word.replaceAll('', '  ');
-        // breaks up into 11 or 111111
         return word.replaceAll('1'.repeat(dash), '-').replaceAll('0'.repeat(dot), '').replaceAll('1'.repeat(dot), '.');
     }).join(' ');
     return result;
