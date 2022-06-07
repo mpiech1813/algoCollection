@@ -34,12 +34,28 @@ export const decodeBits = (bits: string) => {
           temp = 0
       }
   }
+
+  // splits into an array of characters in bits
   bitsArray = bits.split('0'.repeat(dash))
+
+  // translate bits to dots and dashes
+  const result = bitsArray.map((word: string) => {
+      // breaks up into 11 or 111111
+      return word.replaceAll('0'.repeat(dot), ' ')
+    // .replaceAll('1'.repeat(dot), '.').replaceAll('1'.repeat(dash), '-')
+      
+    //   word.split('0'.repeat(dot))
+    //   .forEach((character: string) => {
+    //     character === '1'.repeat(dot) ? character = '.' : ''
+    //     character === '1'.repeat(dash) ? character = '-' : ''
+    //     character === '0'.repeat(dot) ? character = ' ' : ''
+    //   })
+  })
 
 //   const result = `dots: ${dot}
 //   dashes: ${dash}`
-//   return result
-return bitsArray
+  return result
+// return bitsArray
 };
 
 export const decodeMorse = (morseCode: string) => {
@@ -49,7 +65,7 @@ export const decodeMorse = (morseCode: string) => {
 
 
 const heyJudeBits: string = '1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011'
-const heyJudeMorse: string = decodeBits(heyJudeBits)
+const heyJudeMorse: string[] = decodeBits(heyJudeBits)
 console.log(heyJudeMorse)
 
 
