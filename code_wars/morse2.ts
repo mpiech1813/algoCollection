@@ -34,7 +34,7 @@ export const decodeBits = (bits: string) => {
         if( bitsArray[i] === '1' && bitsArray[i+1] === '1'){
             temp += '1'
         } else if (bitsArray[i] === '1' && bitsArray[i+1] === '0' || bitsArray[i] === '1' && bitsArray[i+1] === undefined){
-            if(dot===''){
+            if(dot === ''){
                 temp += '1'
                 dot = temp
                 temp = ''
@@ -59,24 +59,34 @@ export const decodeBits = (bits: string) => {
 //       }
 //   }
 
-// const dots = new RegExp('1'.repeat(dot), 'g')
-// const dashes = new RegExp('1'.repeat(dash), 'g')
-// const spaces = new RegExp('0'.repeat(dot), 'g')
+const dots = new RegExp(dot, 'g')
+// empty spaces get turned into dashes
 
-  // split bits into an array of words in bits
-//   bitsArray = bits.split('0'.repeat(dash))
+const dashes = new RegExp(dash, 'g')
+const spaces = new RegExp('0'.repeat(dot.length), 'g')
 
-  // translate bits to dots and dashes
-//   const result = bitsArray.map((word: string) => {
-    // check for spaces between words
-//     if (word === '') return word = ' '
+// //   split bits into an array of words in bits
+  bitsArray = bits.split('0'.repeat(dash.length))
+
+// //   translate bits to dots and dashes
+  const result = bitsArray.map((word: string) => {
+//     // check for spaces between words
+    if (word === '') return word = ' '
     
-//     return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.')
-//   }).join(' ')
+    if (dash.length > 0) return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.')
+    
+    console.log('i trigerred: ', typeof dot)
+    return word.replace(dots,'.')
+})
+  if(dash.length > 0) {
+        return result.join(' ')
+    } else {
+        return result.join('')
+    }
 
 //   return result
 
-return `dot: ${dot} and dash: ${dash}`
+// return `dot: ${dot.length} and dash: ${dash.length}`
 };
 
 
@@ -87,6 +97,6 @@ const heyJudeBits2: string = '00000011001100110011000000110000001111110011001111
 const E1 = '1'
 const E2 = '111'
 const E3 = '01110'
-console.log(decodeBits(heyJudeBits))
+console.log(decodeBits(E2))
 // console.log(decodeMorse(decodeBits(E1)))
 // console.log(decodeMorse(decodeBits(heyJudeBits2)))

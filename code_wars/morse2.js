@@ -49,19 +49,30 @@ const decodeBits = (bits) => {
     //           temp = 0
     //       }
     //   }
-    // const dots = new RegExp('1'.repeat(dot), 'g')
-    // const dashes = new RegExp('1'.repeat(dash), 'g')
-    // const spaces = new RegExp('0'.repeat(dot), 'g')
-    // split bits into an array of words in bits
-    //   bitsArray = bits.split('0'.repeat(dash))
-    // translate bits to dots and dashes
-    //   const result = bitsArray.map((word: string) => {
-    // check for spaces between words
-    //     if (word === '') return word = ' '
-    //     return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.')
-    //   }).join(' ')
+    const dots = new RegExp(dot, 'g');
+    // empty spaces get turned into dashes
+    const dashes = new RegExp(dash, 'g');
+    const spaces = new RegExp('0'.repeat(dot.length), 'g');
+    // //   split bits into an array of words in bits
+    bitsArray = bits.split('0'.repeat(dash.length));
+    // //   translate bits to dots and dashes
+    const result = bitsArray.map((word) => {
+        //     // check for spaces between words
+        if (word === '')
+            return word = ' ';
+        if (dash.length > 0)
+            return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.');
+        console.log('i trigerred: ', typeof dot);
+        return word.replace(dots, '.');
+    });
+    if (dash.length > 0) {
+        return result.join(' ');
+    }
+    else {
+        return result.join('');
+    }
     //   return result
-    return `dot: ${dot} and dash: ${dash}`;
+    // return `dot: ${dot.length} and dash: ${dash.length}`
 };
 exports.decodeBits = decodeBits;
 const heyJudeBits = '1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011';
@@ -70,6 +81,6 @@ const heyJudeBits2 = '0000001100110011001100000011000000111111001100111111001111
 const E1 = '1';
 const E2 = '111';
 const E3 = '01110';
-console.log((0, exports.decodeBits)(heyJudeBits));
+console.log((0, exports.decodeBits)(E2));
 // console.log(decodeMorse(decodeBits(E1)))
 // console.log(decodeMorse(decodeBits(heyJudeBits2)))
