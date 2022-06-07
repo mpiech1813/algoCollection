@@ -10,6 +10,8 @@
 // 2) decode morseCode => translate from dots and dashes to human language => will just import from previous task to save time.
 
 import { MORSE_CODE } from './MORSE_CODE';
+import {decodeMorse} from './morse1'
+
 
 export const decodeBits = (bits: string) => {
   // ToDo: Accept 0's and 1's, return dots, dashes and spaces
