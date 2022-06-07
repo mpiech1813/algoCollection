@@ -6,16 +6,38 @@
 // pause between words => 7 units
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.decodeBits = void 0;
-const morse1_1 = require("./morse1");
 const decodeBits = (bits) => {
     // ToDo: Accept 0's and 1's, return dots, dashes and spaces
     // establish time unit dot = 2 or 1
-    let dot = 0;
-    let dash = 0;
-    let temp = 0;
+    // new method
+    let dot = '';
+    let dash = '';
+    let temp = '';
+    //old method
+    //   let dot: number = 0
+    //   let dash: number = 0
+    //   let temp: number = 0
     // split bits into an array of individual characters to determine time unit
     let bitsArray = bits.split('');
     // new method
+    for (let i = 0; i <= bitsArray.length; i++) {
+        if (bitsArray[i] === '1' && bitsArray[i + 1] === '1') {
+            temp += '1';
+        }
+        else if (bitsArray[i] === '1' && bitsArray[i + 1] === '0' || bitsArray[i] === '1' && bitsArray[i + 1] === undefined) {
+            if (dot === '') {
+                temp += '1';
+                dot = temp;
+                temp = '';
+            }
+            else {
+                temp += '1';
+                temp > dash ? dash = temp : '';
+                temp < dash && temp > dot ? dot = temp : '';
+                temp = '';
+            }
+        }
+    }
     // old method
     //   for (let i = 0; i <= bitsArray.length; i++){
     //       if( bitsArray[i] === '1' && bitsArray[i+1] === '1'){
@@ -27,27 +49,27 @@ const decodeBits = (bits) => {
     //           temp = 0
     //       }
     //   }
-    const dots = new RegExp('1'.repeat(dot), 'g');
-    const dashes = new RegExp('1'.repeat(dash), 'g');
-    const spaces = new RegExp('0'.repeat(dot), 'g');
+    // const dots = new RegExp('1'.repeat(dot), 'g')
+    // const dashes = new RegExp('1'.repeat(dash), 'g')
+    // const spaces = new RegExp('0'.repeat(dot), 'g')
     // split bits into an array of words in bits
-    bitsArray = bits.split('0'.repeat(dash));
+    //   bitsArray = bits.split('0'.repeat(dash))
     // translate bits to dots and dashes
-    const result = bitsArray.map((word) => {
-        // check for spaces between words
-        if (word === '')
-            return word = ' ';
-        return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.');
-    }).join(' ');
-    return result;
+    //   const result = bitsArray.map((word: string) => {
+    // check for spaces between words
+    //     if (word === '') return word = ' '
+    //     return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.')
+    //   }).join(' ')
+    //   return result
+    return `dot: ${dot} and dash: ${dash}`;
 };
 exports.decodeBits = decodeBits;
 const heyJudeBits = '1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011';
 // const heyJudeMorse: string = decodeBits(heyJudeBits)
 const heyJudeBits2 = '00000011001100110011000000110000001111110011001111110011111100000000000000110011111100111111001111110000001100110011111100000011111100110011000000110000000';
-// console.log(decodeBits(heyJudeBits))
 const E1 = '1';
 const E2 = '111';
 const E3 = '01110';
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(E1)));
+console.log((0, exports.decodeBits)(heyJudeBits));
+// console.log(decodeMorse(decodeBits(E1)))
 // console.log(decodeMorse(decodeBits(heyJudeBits2)))
