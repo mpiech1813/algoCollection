@@ -10,7 +10,7 @@
 // 2) decode morseCode => translate from dots and dashes to human language => will just import from previous task to save time.
 
 import  MORSE_CODE  from './MORSE_CODE';
-// import {decodeMorse} from './morse1'
+import {decodeMorse} from './morse1'
 
 
 export const decodeBits = (bits: string) => {
@@ -50,15 +50,15 @@ export const decodeBits = (bits: string) => {
   return result
 };
 
-export const decodeMorse = (morseCode: string) => {
-  // ToDo: Accept dots, dashes and spaces, return human-readable message
-  return morseCode.replace('.', MORSE_CODE['.']).replace('-', MORSE_CODE['-']).replace(' ', '');
-};
+// export const decodeMorse = (morseCode: string) => {
+//   // ToDo: Accept dots, dashes and spaces, return human-readable message
+//   return morseCode.replace('.', MORSE_CODE['.']).replace('-', MORSE_CODE['-']).replace(' ', '');
+// };
 
 
 const heyJudeBits: string = '1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011'
-const heyJudeMorse: string[] = decodeBits(heyJudeBits)
-console.log(heyJudeMorse)
+const heyJudeMorse: string = decodeBits(heyJudeBits)
+console.log(decodeMorse(heyJudeMorse))
 
 
 // dave => rippling 
