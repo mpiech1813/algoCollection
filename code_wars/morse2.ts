@@ -40,22 +40,14 @@ export const decodeBits = (bits: string) => {
 
   // translate bits to dots and dashes
   const result = bitsArray.map((word: string) => {
-      // breaks up into 11 or 111111
-      return word.replaceAll('0'.repeat(dot), ' ')
-    // .replaceAll('1'.repeat(dot), '.').replaceAll('1'.repeat(dash), '-')
-      
-    //   word.split('0'.repeat(dot))
-    //   .forEach((character: string) => {
-    //     character === '1'.repeat(dot) ? character = '.' : ''
-    //     character === '1'.repeat(dash) ? character = '-' : ''
-    //     character === '0'.repeat(dot) ? character = ' ' : ''
-    //   })
-  })
+    // check for spaces between words
+    if(word === '') return word.replaceAll('', '  ')  
+    
+    // breaks up into 11 or 111111
+      return word.replaceAll('1'.repeat(dash), '-').replaceAll('0'.repeat(dot), '').replaceAll('1'.repeat(dot), '.')
+  }).join(' ')
 
-//   const result = `dots: ${dot}
-//   dashes: ${dash}`
   return result
-// return bitsArray
 };
 
 export const decodeMorse = (morseCode: string) => {
