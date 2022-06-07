@@ -33,12 +33,13 @@ export const decodeBits = (bits: string) => {
           temp = 0
       }
   }
+
 const dotNum: string= '1'.repeat(dot)
-const dots = new RegExp(dotNum, 'g')
+const dots = new RegExp('1'.repeat(dot), 'g')
 const dashNum: string = '1'.repeat(dash)
-const dashes = new RegExp(dashNum, 'g')
+const dashes = new RegExp('1'.repeat(dash), 'g')
 const spaceNum: string = '0'.repeat(dot)
-const spaces = new RegExp(spaceNum, 'g')
+const spaces = new RegExp('0'.repeat(dot), 'g')
 
   // split bits into an array of words in bits
   bitsArray = bits.split('0'.repeat(dash))
@@ -47,8 +48,6 @@ const spaces = new RegExp(spaceNum, 'g')
   const result = bitsArray.map((word: string) => {
     // check for spaces between words
     if(word === '') return word = ' '
-    // if(word === '1'.repeat(dash)) return word = '-'  
-    // if(word === '1'.repeat(dot)) return word = '.'
     
     return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.')
   }).join(' ')
@@ -56,18 +55,14 @@ const spaces = new RegExp(spaceNum, 'g')
   return result
 };
 
-// export const decodeMorse = (morseCode: string) => {
-//   // ToDo: Accept dots, dashes and spaces, return human-readable message
-//   return morseCode.replace('.', MORSE_CODE['.']).replace('-', MORSE_CODE['-']).replace(' ', '');
-// };
 
 
 const heyJudeBits: string = '1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011'
 // const heyJudeMorse: string = decodeBits(heyJudeBits)
 const heyJudeBits2: string = '00000011001100110011000000110000001111110011001111110011111100000000000000110011111100111111001111110000001100110011111100000011111100110011000000110000000'
-console.log(decodeBits(heyJudeBits))
-// console.log(decodeMorse(decodeBits(heyJudeBits)))
-// console.log(decodeMorse(decodeBits(heyJudeBits2)))
+// console.log(decodeBits(heyJudeBits))
+console.log(decodeMorse(decodeBits(heyJudeBits)))
+console.log(decodeMorse(decodeBits(heyJudeBits2)))
 
 
 
