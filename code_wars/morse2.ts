@@ -23,22 +23,23 @@ export const decodeBits = (bits: string) => {
   // split bits into an array of individual characters to determine time unit
   let bitsArray: string[] = bits.split('')
 
-  for (let i = 0; i <= bitsArray.length; i++){
-      if( bitsArray[i] === '1' && bitsArray[i+1] === '1'){
-          temp ++
-      } else if (bitsArray[i] === '1' && bitsArray[i+1] === '0'){
-          temp ++
-          temp > dash ? dash = temp : ''
-          temp < dash && temp > dot ? dot = temp : ''
-          temp = 0
-      }
-  }
+  // new method
+  
+  
+  // old method
+//   for (let i = 0; i <= bitsArray.length; i++){
+//       if( bitsArray[i] === '1' && bitsArray[i+1] === '1'){
+//           temp ++
+//       } else if (bitsArray[i] === '1' && bitsArray[i+1] === '0'){
+//           temp ++
+//           temp > dash ? dash = temp : ''
+//           temp < dash && temp > dot ? dot = temp : ''
+//           temp = 0
+//       }
+//   }
 
-const dotNum: string= '1'.repeat(dot)
 const dots = new RegExp('1'.repeat(dot), 'g')
-const dashNum: string = '1'.repeat(dash)
 const dashes = new RegExp('1'.repeat(dash), 'g')
-const spaceNum: string = '0'.repeat(dot)
 const spaces = new RegExp('0'.repeat(dot), 'g')
 
   // split bits into an array of words in bits
@@ -47,7 +48,7 @@ const spaces = new RegExp('0'.repeat(dot), 'g')
   // translate bits to dots and dashes
   const result = bitsArray.map((word: string) => {
     // check for spaces between words
-    if(word === '') return word = ' '
+    if (word === '') return word = ' '
     
     return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.')
   }).join(' ')
@@ -61,11 +62,8 @@ const heyJudeBits: string = '110011001100110000001100000011111100110011111100111
 // const heyJudeMorse: string = decodeBits(heyJudeBits)
 const heyJudeBits2: string = '00000011001100110011000000110000001111110011001111110011111100000000000000110011111100111111001111110000001100110011111100000011111100110011000000110000000'
 // console.log(decodeBits(heyJudeBits))
-console.log(decodeMorse(decodeBits(heyJudeBits)))
-console.log(decodeMorse(decodeBits(heyJudeBits2)))
-
-
-
-// dave => rippling 
-// israel => gmail
-// panoskin pro for Nick 
+const E1 = '1'
+const E2 = '111'
+const E3 = '01110'
+console.log(decodeMorse(decodeBits(E1)))
+// console.log(decodeMorse(decodeBits(heyJudeBits2)))
