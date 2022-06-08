@@ -35,7 +35,7 @@ const decodeBits = (bits) => {
             }
         }
     }
-    // make sure that dot is always smaller out of the two
+    // make sure that dot is always the smaller out of the two
     if (dot.length > dash.length && dash.length > 0) {
         temp = dot;
         dot = dash;
@@ -44,11 +44,9 @@ const decodeBits = (bits) => {
     const dots = new RegExp(dot, 'g');
     const dashes = new RegExp(dash, 'g');
     const spaces = new RegExp('0'.repeat(dot.length), 'g');
-    //może przeniść logikę do innej funkcji?
     // split **the string** into an array of words in bits
     if (dash.length > 0) {
         bitsArray = bits.split('0'.repeat(dash.length));
-        // let result = bitsArray.map().join()
         // translate bits to dots and dashes
         return bitsArray.map((word) => {
             // check for spaces between words
