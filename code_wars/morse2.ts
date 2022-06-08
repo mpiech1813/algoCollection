@@ -23,15 +23,16 @@ export const decodeBits = (bits: string) => {
   let temp: string = ''
   
   //old method
-//   let dot: number = 0
-//   let dash: number = 0
-//   let temp: number = 0
+  //   let dot: number = 0
+  //   let dash: number = 0
+  //   let temp: number = 0
   // split bits into an array of individual characters to determine time unit
   let bitsArray: string[] = bits.split('')
-
+  
   // new method
-    for(let i = 0; i <= bitsArray.length; i++ ){
-        if( bitsArray[i] === '1' && bitsArray[i+1] === '1'){
+  for(let i = 0; i <= bitsArray.length; i++ ){
+      if( bitsArray[i] === '1' && bitsArray[i+1] === '1'){
+            console.log('i trigerred: ')
             temp += '1'
         } else if (bitsArray[i] === '1' && bitsArray[i+1] === '0' || bitsArray[i] === '1' && bitsArray[i+1] === undefined){
             if(dot === ''){
@@ -74,17 +75,14 @@ const spaces = new RegExp('0'.repeat(dot.length), 'g')
     if (word === '') return word = ' '
     
     if (dash.length > 0) return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.')
-    
-    console.log('i trigerred: ', typeof dot)
-    return word.replace(dots,'.')
+    console.log(dot)
+    console.log(word)
+    return word.replace(dots, '.')
 })
-  if(dash.length > 0) {
-        return result.join(' ')
-    } else {
-        return result.join('')
-    }
+  if(dash.length === 0) return result.join('')
+    
 
-//   return result
+  return result.join(' ')
 
 // return `dot: ${dot.length} and dash: ${dash.length}`
 };

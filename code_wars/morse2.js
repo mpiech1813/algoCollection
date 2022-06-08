@@ -22,6 +22,7 @@ const decodeBits = (bits) => {
     // new method
     for (let i = 0; i <= bitsArray.length; i++) {
         if (bitsArray[i] === '1' && bitsArray[i + 1] === '1') {
+            console.log('i trigerred: ');
             temp += '1';
         }
         else if (bitsArray[i] === '1' && bitsArray[i + 1] === '0' || bitsArray[i] === '1' && bitsArray[i + 1] === undefined) {
@@ -62,16 +63,13 @@ const decodeBits = (bits) => {
             return word = ' ';
         if (dash.length > 0)
             return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.');
-        console.log('i trigerred: ', typeof dot);
+        console.log(dot);
+        console.log(word);
         return word.replace(dots, '.');
     });
-    if (dash.length > 0) {
-        return result.join(' ');
-    }
-    else {
+    if (dash.length === 0)
         return result.join('');
-    }
-    //   return result
+    return result.join(' ');
     // return `dot: ${dot.length} and dash: ${dash.length}`
 };
 exports.decodeBits = decodeBits;
