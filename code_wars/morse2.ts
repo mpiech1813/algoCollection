@@ -20,6 +20,7 @@ export const decodeBits = (bits: string): string => {
   let dash: string = ''
   let space: string = ''
   let temp: string = ''
+  let tempSpace: string = ''
 
   // split bits into an array of individual characters to determine time unit
   let bitsArray: string[] = bits.split('')
@@ -39,6 +40,14 @@ export const decodeBits = (bits: string): string => {
           temp < dash && temp > dot ? dot = temp : ''
           temp = ''
       }
+    } else if (bitsArray[i] === '0' && bitsArray[i+1] === '0') {
+      tempSpace += '0'
+    } else if (bitsArray[i] === '0' && bitsArray[i+1] === '1') {
+      if(tempSpace.length > space.length) {
+        tempSpace += '1'
+        space = tempSpace
+      }
+        tempSpace = ''      
     }
   }
 

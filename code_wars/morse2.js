@@ -14,6 +14,7 @@ const decodeBits = (bits) => {
     let dash = '';
     let space = '';
     let temp = '';
+    let tempSpace = '';
     // split bits into an array of individual characters to determine time unit
     let bitsArray = bits.split('');
     // new method
@@ -33,6 +34,16 @@ const decodeBits = (bits) => {
                 temp < dash && temp > dot ? dot = temp : '';
                 temp = '';
             }
+        }
+        else if (bitsArray[i] === '0' && bitsArray[i + 1] === '0') {
+            tempSpace += '0';
+        }
+        else if (bitsArray[i] === '0' && bitsArray[i + 1] === '1') {
+            if (tempSpace.length > space.length) {
+                tempSpace += '1';
+                space = tempSpace;
+            }
+            tempSpace = '';
         }
     }
     // make sure that dot is always the smaller out of the two
