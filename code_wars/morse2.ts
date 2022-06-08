@@ -11,12 +11,12 @@
 
 /**
  * PYTANIE: jak naprawić import
+ * kwestia configa
  */
-import  MORSE_CODE  from './MORSE_CODE';
+import  MORSE_CODE  from './MORSE_CODE.json';
 import {decodeMorse} from './morse1'
 
-
-export const decodeBits = (bits: string) => {
+export const decodeBits = (bits: string): string => {
   // ToDo: Accept 0's and 1's, return dots, dashes and spaces
 
   // establish time unit dot
@@ -57,16 +57,12 @@ export const decodeBits = (bits: string) => {
   const dashes = new RegExp(dash, 'g')
   const spaces = new RegExp('0'.repeat(dot.length), 'g')
   
-  // split bits into an array of words in bits
+  //może przeniść logikę do innej funkcji?
+  // split **the string** into an array of words in bits
   if(dash.length > 0){
-    /**
-     * PYTANIE:
-     * jest: return bits.map.join()
-     * czy lepiej jest zrobić let result = return bits.map.join()
-     * bo: result zaczyna jako array a kończy jako string
-     */
     bitsArray = bits.split('0'.repeat(dash.length))
 
+    // let result = bitsArray.map().join()
     // translate bits to dots and dashes
     return bitsArray.map((word: string) => {
       // check for spaces between words
@@ -74,9 +70,9 @@ export const decodeBits = (bits: string) => {
       
       return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.')
     }).join(' ')
-  } else {
-    return bits.replace(dots, '.').replace(/0/g,'')
-  }
+  } 
+
+  return bits.replace(dots, '.').replace(/0/g,'')
 };
 
 
@@ -93,12 +89,12 @@ const FOX = '0001110001010101000100000001110111010111000101011100010100011101011
 const EE = '10001'
 const M = '11111100111111'
 // 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.'
-// console.log(decodeBits(E1))
-console.log(decodeMorse(decodeBits(E1)))
-console.log(decodeMorse(decodeBits(E2)))
-console.log(decodeMorse(decodeBits(E3)))
-console.log(decodeMorse(decodeBits(heyJudeBits)))
-console.log(decodeMorse(decodeBits(heyJudeBits2)))
-console.log(decodeMorse(decodeBits(I1)))
-console.log(decodeMorse(decodeBits(I2)))
-console.log(decodeMorse(decodeBits(FOX)))
+console.log(decodeBits(EE))
+console.log(decodeMorse(decodeBits(EE)))
+// console.log(decodeMorse(decodeBits(E2)))
+// console.log(decodeMorse(decodeBits(E3)))
+// console.log(decodeMorse(decodeBits(heyJudeBits)))
+// console.log(decodeMorse(decodeBits(heyJudeBits2)))
+// console.log(decodeMorse(decodeBits(I1)))
+// console.log(decodeMorse(decodeBits(I2)))
+// console.log(decodeMorse(decodeBits(FOX)))

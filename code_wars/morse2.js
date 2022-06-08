@@ -44,15 +44,11 @@ const decodeBits = (bits) => {
     const dots = new RegExp(dot, 'g');
     const dashes = new RegExp(dash, 'g');
     const spaces = new RegExp('0'.repeat(dot.length), 'g');
-    // split bits into an array of words in bits
+    //może przeniść logikę do innej funkcji?
+    // split **the string** into an array of words in bits
     if (dash.length > 0) {
-        /**
-         * PYTANIE:
-         * jest: return bits.map.join()
-         * czy lepiej jest zrobić let result = return bits.map.join()
-         * bo: result zaczyna jako array a kończy jako string
-         */
         bitsArray = bits.split('0'.repeat(dash.length));
+        // let result = bitsArray.map().join()
         // translate bits to dots and dashes
         return bitsArray.map((word) => {
             // check for spaces between words
@@ -61,9 +57,7 @@ const decodeBits = (bits) => {
             return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.');
         }).join(' ');
     }
-    else {
-        return bits.replace(dots, '.').replace(/0/g, '');
-    }
+    return bits.replace(dots, '.').replace(/0/g, '');
 };
 exports.decodeBits = decodeBits;
 const heyJudeBits = '1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011';
@@ -78,12 +72,12 @@ const FOX = '0001110001010101000100000001110111010111000101011100010100011101011
 const EE = '10001';
 const M = '11111100111111';
 // 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.'
-// console.log(decodeBits(E1))
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(E1)));
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(E2)));
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(E3)));
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(heyJudeBits)));
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(heyJudeBits2)));
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(I1)));
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(I2)));
-console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(FOX)));
+console.log((0, exports.decodeBits)(EE));
+console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(EE)));
+// console.log(decodeMorse(decodeBits(E2)))
+// console.log(decodeMorse(decodeBits(E3)))
+// console.log(decodeMorse(decodeBits(heyJudeBits)))
+// console.log(decodeMorse(decodeBits(heyJudeBits2)))
+// console.log(decodeMorse(decodeBits(I1)))
+// console.log(decodeMorse(decodeBits(I2)))
+// console.log(decodeMorse(decodeBits(FOX)))
