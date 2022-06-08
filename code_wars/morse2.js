@@ -9,15 +9,10 @@ exports.decodeBits = void 0;
 const morse1_1 = require("./morse1");
 const decodeBits = (bits) => {
     // ToDo: Accept 0's and 1's, return dots, dashes and spaces
-    // establish time unit dot = 2 or 1
-    // new method
+    // establish time unit dot
     let dot = '';
     let dash = '';
     let temp = '';
-    //old method
-    //   let dot: number = 0
-    //   let dash: number = 0
-    //   let temp: number = 0
     // split bits into an array of individual characters to determine time unit
     let bitsArray = bits.split('');
     // new method
@@ -39,19 +34,7 @@ const decodeBits = (bits) => {
             }
         }
     }
-    // old method
-    //   for (let i = 0; i <= bitsArray.length; i++){
-    //       if( bitsArray[i] === '1' && bitsArray[i+1] === '1'){
-    //           temp ++
-    //       } else if (bitsArray[i] === '1' && bitsArray[i+1] === '0'){
-    //           temp ++
-    //           temp > dash ? dash = temp : ''
-    //           temp < dash && temp > dot ? dot = temp : ''
-    //           temp = 0
-    //       }
-    //   }
     const dots = new RegExp(dot, 'g');
-    // empty spaces get turned into dashes
     const dashes = new RegExp(dash, 'g');
     const spaces = new RegExp('0'.repeat(dot.length), 'g');
     // split bits into an array of words in bits
@@ -59,7 +42,7 @@ const decodeBits = (bits) => {
         bitsArray = bits.split('0'.repeat(dash.length));
         // translate bits to dots and dashes
         return bitsArray.map((word) => {
-            //     // check for spaces between words
+            // check for spaces between words
             if (word === '')
                 return word = ' ';
             return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.');
@@ -68,7 +51,6 @@ const decodeBits = (bits) => {
     else {
         return bits.replace(dots, '.').replace(/0/g, '');
     }
-    // return `dot: ${dot.length} and dash: ${dash.length}`
 };
 exports.decodeBits = decodeBits;
 const heyJudeBits = '1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011';
