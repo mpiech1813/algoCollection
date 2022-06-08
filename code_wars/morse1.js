@@ -41,21 +41,33 @@ function decodeMorse(morseCode) {
     return (finalSentence = translatedLetters.join(' ').trim());
 }
 exports.decodeMorse = decodeMorse;
-console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
-console.log(decodeMorse('   -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'));
-console.log(decodeMorse('   .   .'));
-(' E E');
-console.log(decodeMorse('.   .   '));
-('E E ');
-console.log(decodeMorse('   .   .   '));
-(' E E ');
-console.log(decodeMorse('      .   .   '));
-('  E E ');
-console.log(decodeMorse('         .   .   '));
-('   E E ');
-console.log(decodeMorse('      .   .      '));
-('  E E  ');
-console.log(decodeMorse(`      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-     `));
-console.log(decodeMorse(' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'));
-console.log(decodeMorse(' . ')); // E
-console.log(decodeMorse('--..'));
+// console.log(decodeMorse('.... . -.--   .--- ..- -.. .'));
+// console.log(
+//   decodeMorse(
+//     '   -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'
+//   )
+// );
+// console.log(decodeMorse('   .   .'));
+// (' E E');
+// console.log(decodeMorse('.   .   '));
+// ('E E ');
+// console.log(decodeMorse('   .   .   '));
+// (' E E ');
+// console.log(decodeMorse('      .   .   '));
+// ('  E E ');
+// console.log(decodeMorse('         .   .   '));
+// ('   E E ');
+// console.log(decodeMorse('      .   .      '));
+// ('  E E  ');
+// console.log(
+//   decodeMorse(
+//     `      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-     `
+//   )
+// );
+// console.log(
+//   decodeMorse(
+//     ' -- -.--   -. .- -- .   .. ...   .-. --- -... . .-. - --..--   .--. .-.. . .- ... .   ... . -. -..   .... . .-.. .--. -.-.--   ...---...'
+//   )
+// );
+// console.log(decodeMorse(' . ')); // E
+// console.log(decodeMorse('--..'));
