@@ -36,7 +36,7 @@ const decodeBits = (bits) => {
         }
     }
     // make sure that dot is always smaller out of the two
-    if (dot.length > dash.length) {
+    if (dot.length > dash.length && dash.length > 0) {
         temp = dot;
         dot = dash;
         dash = temp;
@@ -44,8 +44,6 @@ const decodeBits = (bits) => {
     const dots = new RegExp(dot, 'g');
     const dashes = new RegExp(dash, 'g');
     const spaces = new RegExp('0'.repeat(dot.length), 'g');
-    console.log('dot is: ', dot);
-    console.log('dash is: ', dash);
     // split bits into an array of words in bits
     if (dash.length > 0) {
         /**
@@ -78,8 +76,12 @@ const I1 = '101';
 const I2 = '110011';
 const FOX = '00011100010101010001000000011101110101110001010111000101000111010111010001110101110000000111010101000101110100011101110111000101110111000111010000000101011101000111011101110001110101011100000001011101110111000101011100011101110001011101110100010101000000011101110111000101010111000100010111010000000111000101010100010000000101110101000101110001110111010100011101011101110000000111010100011101110111000111011101000101110101110101110';
 // 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.'
-console.log((0, exports.decodeBits)(FOX));
+// console.log(decodeBits(E1))
+console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(E1)));
+console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(E2)));
+console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(E3)));
+console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(heyJudeBits)));
+console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(heyJudeBits2)));
+console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(I1)));
+console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(I2)));
 console.log((0, morse1_1.decodeMorse)((0, exports.decodeBits)(FOX)));
-// console.log(decodeMorse(decodeBits(E2)))
-// console.log(decodeMorse(decodeBits(E3)))
-// console.log(decodeMorse(decodeBits(heyJudeBits2)))
