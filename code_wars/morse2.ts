@@ -9,6 +9,9 @@
 // return result as string, ignore extra 0's 
 // 2) decode morseCode => translate from dots and dashes to human language => will just import from previous task to save time.
 
+/**
+ * PYTANIE: jak naprawić import
+ */
 import  MORSE_CODE  from './MORSE_CODE';
 import {decodeMorse} from './morse1'
 
@@ -48,6 +51,12 @@ export const decodeBits = (bits: string) => {
 
   // split bits into an array of words in bits
   if(dash.length > 0){
+    /**
+     * PYTANIE:
+     * jest: return bits.map.join()
+     * czy lepiej jest zrobić let result = return bits.map.join()
+     * bo: result zaczyna jako array a kończy jako string
+     */
     bitsArray = bits.split('0'.repeat(dash.length))
 
     // translate bits to dots and dashes

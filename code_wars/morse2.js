@@ -39,6 +39,12 @@ const decodeBits = (bits) => {
     const spaces = new RegExp('0'.repeat(dot.length), 'g');
     // split bits into an array of words in bits
     if (dash.length > 0) {
+        /**
+         * PYTANIE:
+         * jest: return bits.map.join()
+         * czy lepiej jest zrobić let result = return bits.map.join()
+         * bo: result zaczyna jako array a kończy jako string
+         */
         bitsArray = bits.split('0'.repeat(dash.length));
         // translate bits to dots and dashes
         return bitsArray.map((word) => {
