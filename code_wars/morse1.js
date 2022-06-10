@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.decodeMorse = void 0;
-const MORSE_CODE_1 = __importDefault(require("./MORSE_CODE"));
+const MORSE_CODE_json_1 = __importDefault(require("./MORSE_CODE.json"));
 function decodeMorse(morseCode) {
     // your code here
     let finalSentence;
@@ -33,7 +33,7 @@ function decodeMorse(morseCode) {
         return (word
             .split(' ')
             // translate each letter from morse to latin
-            .map((letter) => MORSE_CODE_1.default[letter])
+            .map((letter) => MORSE_CODE_json_1.default[letter])
             // combine latin letters into words
             .join(''));
     });

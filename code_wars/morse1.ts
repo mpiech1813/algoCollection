@@ -9,7 +9,7 @@
 // if tripple space, add space to final sentence
 // return final sentence
 
-import MORSE_CODE from './MORSE_CODE';
+import MORSE_CODE from './MORSE_CODE.json';
 
 export function decodeMorse(morseCode: string): string {
   // your code here
