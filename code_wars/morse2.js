@@ -22,7 +22,8 @@ const decodeBits = (bits) => {
         if (bitsArray[i] === '1' && bitsArray[i + 1] === '1') {
             temp += '1';
         }
-        else if (bitsArray[i] === '1' && bitsArray[i + 1] === '0' || bitsArray[i] === '1' && bitsArray[i + 1] === undefined) {
+        else if ((bitsArray[i] === '1' && bitsArray[i + 1] === '0') ||
+            (bitsArray[i] === '1' && bitsArray[i + 1] === undefined)) {
             if (dot === '') {
                 temp += '1';
                 dot = temp;
@@ -30,8 +31,8 @@ const decodeBits = (bits) => {
             }
             else {
                 temp += '1';
-                temp > dash && temp !== dot ? dash = temp : '';
-                temp < dash && temp > dot ? dot = temp : '';
+                temp > dash && temp !== dot ? (dash = temp) : '';
+                temp < dash && temp > dot ? (dot = temp) : '';
                 temp = '';
             }
         }
@@ -59,12 +60,14 @@ const decodeBits = (bits) => {
     if (dash.length > 0) {
         bitsArray = bits.split('0'.repeat(dash.length));
         // translate bits to dots and dashes
-        return bitsArray.map((word) => {
+        return bitsArray
+            .map((word) => {
             // check for spaces between words
             if (word === '')
-                return word = ' ';
+                return (word = ' ');
             return word.replace(dashes, '-').replace(spaces, '').replace(dots, '.');
-        }).join(' ');
+        })
+            .join(' ');
     }
     return bits.replace(dots, '.').replace(/0/g, '');
 };
