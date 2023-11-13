@@ -53,5 +53,6 @@ const firstSecond = "abcabc";
 const firstThird = "bbbbb";
 const firstFourth = "aongbgouerbekolmnbvcxzaqwertyuikjhgfds";
 const laststring = "kwwkeys";
+const exampleOne = "abcabcbb";
 
-longestSubstring(laststring);
+longestSubstring(exampleOne);
