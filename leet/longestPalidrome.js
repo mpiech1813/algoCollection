@@ -13,6 +13,9 @@
  * - if not the same, get rid of the last one and proceed with second loop, and reset second character storage
  * - keep going until both trackers are next to each other or there is 1 character inbetween
  * - if they are next to each other: are they the same? no => next itteration of first loop | yes => check if final answer is longer finalAnswer and replace if necessary
+ * - if there is 1 inbetween: add middle in the middle and combine. Compare to final answer
+ *
+ * C:
  */
 
 var longestPalindrome = function (s) {};
