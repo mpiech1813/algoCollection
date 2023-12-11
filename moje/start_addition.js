@@ -30,4 +30,4 @@ const XYZ_checker = (start, increment, final) => {
   }
 };
 
-XYZ_checker(2, 1, 5);
+XYZ_checker(2, 4, 5);
