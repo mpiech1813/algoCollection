@@ -2,20 +2,57 @@
  * R: Given a string return the longest palidrome: word which reads the same from back to front
  * E: asdbdbiojwp, radar, kayak, bb, wojeejsdjobsofbgoweb
  * A:
- * - convert string to array
- * - create array for final answer
- * - start first loop at the 0 index
- * - slice the first character
- * - start second loop at index of .length - 1
- * - if that === 0 then reutrn first character
- * - slice the last character
- * - if first and last are the same, store these values
- * - if not the same, get rid of the last one and proceed with second loop, and reset second character storage
- * - keep going until both trackers are next to each other or there is 1 character inbetween
- * - if they are next to each other: are they the same? no => next itteration of first loop | yes => check if final answer is longer finalAnswer and replace if necessary
- * - if there is 1 inbetween: add middle in the middle and combine. Compare to final answer
+ * - wrong
  *
  * C:
  */
 
-var longestPalindrome = function (s) {};
+var longestPalindrome = function (s) {
+  let finalAnswer = "";
+  const stringArray = s.split("");
+  let start = null;
+  let end = null;
+  let x = 0;
+  let y = stringArray.length - 1;
+
+  for (let i = 0; i < y; i++) {
+    console.log("i is: ", stringArray[i]);
+    for (let p = stringArray.length - 1; p > i; p--) {
+      console.log("p is: ", stringArray[p]);
+      if (stringArray[i] === stringArray[p]) {
+        if (start === null) start = x;
+        if (end === null) end = y;
+        while (y > x) {
+          console.log("i got here", start, end);
+          if (y === x + 1 || y === x + 2) {
+            break;
+          }
+          if (stringArray[x] === stringArray[y]) {
+            x++;
+            y--;
+          } else {
+            start = null;
+            end = null;
+          }
+        }
+        if (start !== null && end !== null) {
+          const candidate = s.slice(start, end + 1);
+
+          if (finalAnswer.length < candidate.length) {
+            finalAnswer = candidate;
+          }
+        }
+      }
+    }
+  }
+
+  console.log("final answer: ", finalAnswer);
+};
+
+const first = "asdbdbiojwp";
+const second = "radar";
+const third = "kayak";
+const fourth = "wojeejsdjobsofbgoweb";
+const fifth = "bbbb";
+
+longestPalindrome(fourth);
