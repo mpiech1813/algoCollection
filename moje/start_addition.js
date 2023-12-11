@@ -11,10 +11,23 @@
 const XYZ_checker = (start, increment, final) => {
   let tracker = start;
 
-  while (tracker <= final) {
-    tracker++;
-    console.log("tracker: ", tracker);
+  while (tracker < final) {
+    tracker += increment;
+  }
+  console.log("tracker: ", tracker);
+
+  if (tracker === final) {
+    console.log("equal");
+  } else {
+    const lower = tracker - increment;
+    const lowerDifference = final - lower;
+    const higherDifference = tracker - final;
+    if (higherDifference < lowerDifference) {
+      console.log("higher");
+    } else {
+      console.log("lower");
+    }
   }
 };
 
-XYZ_checker(2, 2, 5);
+XYZ_checker(2, 1, 5);
