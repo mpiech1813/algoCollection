@@ -6,7 +6,15 @@
  * X= 1 Y= 0.5 Z= 4 => yes
  * X= 1 Y= 0.3 Z= 4 => ?
  * A: create a for loop from x increasing by y until => Z. if === Z then return yes, if > then Z check 2 whether the last number before Z or the number after is closer to the Z.
- *
- *
- *
  */
+
+const XYZ_checker = (start, increment, final) => {
+  let tracker = start;
+
+  while (tracker <= final) {
+    tracker++;
+    console.log("tracker: ", tracker);
+  }
+};
+
+XYZ_checker(2, 2, 5);
