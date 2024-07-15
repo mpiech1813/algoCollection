@@ -7,11 +7,12 @@ function solution(str, ending) {
   if (str.length === 0 || ending.length === 0) return false;
   const compare = str.slice(-ending.length);
 
-  if (compare === ending) {
-    return true;
-  } else {
-    return false;
-  }
+  //   if (compare === ending) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  return compare === ending ? true : false;
 }
 
 // solution("abcde", "cde");
