@@ -6,7 +6,7 @@ function createPhoneNumber(number) {
   if (number.length !== 10) throw "Check the number";
   const error = number.find((ele) => typeof ele !== "number");
   if (error !== undefined) throw "Check the numbers";
-  console.log("number:", error);
+
   const numbers = number.toString().replaceAll(",", "");
   return `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(-4)}`;
 }
