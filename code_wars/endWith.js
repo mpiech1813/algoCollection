@@ -6,13 +6,11 @@
 function solution(str, ending) {
   if (str.length === 0 || ending.length === 0) return false;
   const compare = str.slice(-ending.length);
-  console.log("compare:", compare);
-  console.log("ending:", ending);
 
   if (compare === ending) {
-    return "true";
+    return true;
   } else {
-    return "false";
+    return false;
   }
 }
 
