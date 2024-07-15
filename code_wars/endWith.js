@@ -4,6 +4,8 @@
 // C:
 
 function solution(str, ending) {
+  if (typeof str != "string" || typeof ending != "string") throw "wrong type";
+  if (ending.length > str.length) return false;
   if (str.length === 0) return false;
   if (ending.length === 0) return true;
   const compare = str.slice(-ending.length);
