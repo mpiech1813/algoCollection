@@ -6,11 +6,11 @@ function createPhoneNumber(number) {
   const error = number.find((ele) => typeof ele !== "number");
   if (error !== undefined || number.length !== 10) throw "Check the numbers";
 
-  const numbers = number.toString().replaceAll(",", "");
+  const numbers = number.join("");
   return `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(-4)}`;
 }
 
-// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 // console.log(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]));
 // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1]));
-console.log(createPhoneNumber([1, 2, 3, 4, 5, "A", 7, 8, 9, 0]));
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, "A", 7, 8, 9, 0]));
