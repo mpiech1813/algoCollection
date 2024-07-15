@@ -9,6 +9,8 @@ function solution(str, ending) {
   const compare = str.slice(-ending.length);
 
   return compare === ending ? true : false;
+
+  //   return str.endsWith(ending);
 }
 
 // console.log(solution("abcde", "cde"));
