@@ -4,17 +4,13 @@
 // C:
 
 function solution(str, ending) {
-  if (str.length === 0 || ending.length === 0) return false;
+  if (str.length === 0) return false;
+  if (ending.length === 0) return true;
   const compare = str.slice(-ending.length);
 
-  //   if (compare === ending) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
   return compare === ending ? true : false;
 }
 
-// solution("abcde", "cde");
-console.log(solution("abcde", "cde"));
+// console.log(solution("abcde", "cde"));
 // console.log(solution("abcde", "abc"));
+console.log(solution("abcde", ""));
