@@ -3,9 +3,8 @@
 // A: check that there are no more or no less than 10 digits, check if all digits are numbers, create a template and return as string
 // C:
 function createPhoneNumber(number) {
-  if (number.length !== 10) throw "Check the number";
   const error = number.find((ele) => typeof ele !== "number");
-  if (error !== undefined) throw "Check the numbers";
+  if (error !== undefined || number.length !== 10) throw "Check the numbers";
 
   const numbers = number.toString().replaceAll(",", "");
   return `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(-4)}`;
