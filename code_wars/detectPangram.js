@@ -6,8 +6,24 @@
 
 const isPangram = (str) => {
   if (typeof str !== "string") throw "use only strings";
+  str.toUpperCase();
+
+  const alphabit = [];
+  const strArr = str.toUpperCase().split("").sort();
+
+  const indexOfA = strArr.findIndex((ele) => ele === "A");
+  const indexOfZ = strArr.findIndex((ele) => ele === "Z");
+
+  if (indexOfA === -1 || indexOfZ === -1) return false;
+
+  const sterileStrArr = strArr.slice(indexOfA, indexOfZ + 1);
+  sterileStrArr.forEach((letter) => {
+    if (!alphabit.includes(letter)) alphabit.push;
+  });
+
+  console.log(strArr);
 };
 
-isPangram("The quick brown fox jumps over the lazy dog");
-isPangram("hello world");
-isPangram(13546798);
+isPangram("The111 'quick brown fox, jump[s over the -lazy ;dog./?");
+// isPangram("hello world");
+// isPangram(13546798);
