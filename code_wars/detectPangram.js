@@ -18,12 +18,15 @@ const isPangram = (str) => {
 
   const sterileStrArr = strArr.slice(indexOfA, indexOfZ + 1);
   sterileStrArr.forEach((letter) => {
-    if (!alphabit.includes(letter)) alphabit.push;
+    if (!alphabit.includes(letter)) alphabit.push(letter);
   });
 
-  console.log(strArr);
+  alphabit.length === 26 ? true : false;
+  console.log(alphabit.length);
 };
 
-isPangram("The111 'quick brown fox, jump[s over the -lazy ;dog./?");
-// isPangram("hello world");
-// isPangram(13546798);
+console.log(
+  isPangram("The111 'quick brown fox, jump[s over the -lazy ;dog./?")
+);
+// console.log(isPangram("hello world"));
+// console.log(isPangram(13546798));
