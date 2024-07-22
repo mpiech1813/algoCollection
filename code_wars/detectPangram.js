@@ -21,12 +21,15 @@ const isPangram = (str) => {
     if (!alphabit.includes(letter)) alphabit.push(letter);
   });
 
-  alphabit.length === 26 ? true : false;
-  console.log(alphabit.length);
+  if (alphabit.length === 26) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-console.log(
-  isPangram("The111 'quick brown fox, jump[s over the -lazy ;dog./?")
-);
-// console.log(isPangram("hello world"));
+// console.log(
+//   isPangram("The111 'quick brown fox, jump[s over the -lazy ;dog./?")
+// );
+console.log(isPangram("hello world"));
 // console.log(isPangram(13546798));
