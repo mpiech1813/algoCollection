@@ -9,5 +9,15 @@
 //C :
 
 var isSquare = function (n) {
-  return false; // fix me
+  return Number.isInteger(Math.sqrt(n));
 };
+
+console.log(isSquare(4));
+console.log(isSquare(0));
+console.log(isSquare(1));
+console.log(isSquare(-1));
+console.log(isSquare(64));
+console.log(isSquare(121));
+console.log(isSquare(13));
+console.log(isSquare(1111));
+console.log(isSquare(26));
