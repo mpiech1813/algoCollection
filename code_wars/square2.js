@@ -6,6 +6,7 @@
 // 25  =>  true
 // 26  =>  false
 // A: use Math.sprRt on the number, if -1 return false, else return true
+//C :
 
 var isSquare = function (n) {
   return false; // fix me
