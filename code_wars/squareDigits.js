@@ -18,3 +18,5 @@ function squareDigits(num) {
 }
 
 console.log(squareDigits(1123));
+console.log(squareDigits(9119));
+console.log(squareDigits(765));
