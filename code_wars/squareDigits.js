@@ -18,3 +18,12 @@ console.log(squareDigits(9119));
 console.log(squareDigits(765));
 console.log(squareDigits(0));
 console.log(squareDigits("123"));
+
+function squareDigitsReducer(number) {
+  return parseInt(
+    number
+      .toString()
+      .split("")
+      .reduce((acc, digit) => acc + Math.pow(parseInt(digit), 2).toString(), "")
+  );
+}
