@@ -10,13 +10,11 @@ function squareDigits(num) {
     .map((ele) => Math.pow(ele, 2))
     .join("");
 
-  //   return num
-  //     .toString()
-  //     .split("")
-
   return parseInt(numArr);
 }
 
 console.log(squareDigits(1123));
 console.log(squareDigits(9119));
 console.log(squareDigits(765));
+console.log(squareDigits(0));
+console.log(squareDigits("123"));
