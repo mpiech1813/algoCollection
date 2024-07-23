@@ -12,7 +12,12 @@ function dnaStrand(dna) {
     C: "G",
   };
 
-  return dna.split("").reducer((acc, letter) => {
-    acc + pairs[letter];
-  }, "");
+  return dna
+    .toUpperCase()
+    .split("")
+    .reduce((acc, letter) => acc + pairs[letter], "");
 }
+
+console.log(dnaStrand("ATTGC"));
+console.log(dnaStrand("GTAT"));
+console.log(dnaStrand("AAAA"));
