@@ -11,7 +11,9 @@ function narcissistic(value) {
 
   if (pwr === 1) return true;
 
-  const sum = arrayOfNumbers.reduce((acc, ele) => acc + Math.pow(ele, pwr));
+  const sum = arrayOfNumbers.reduce((acc, ele) => acc + Math.pow(ele, pwr), 0);
+
+  console.log(sum);
 
   if (value === sum) {
     return true;
