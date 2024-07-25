@@ -5,4 +5,10 @@
 // use reducer to calculate the total acc + ele^pwr, check if acc === original number
 // C:
 
-function narcissistic(value) {}
+function narcissistic(value) {
+  const arrayOfNumbers = Array.from(String(value), Number);
+
+  console.log(arrayOfNumbers);
+}
+
+narcissistic(12345);
