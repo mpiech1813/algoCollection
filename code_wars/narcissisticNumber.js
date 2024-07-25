@@ -7,8 +7,13 @@
 
 function narcissistic(value) {
   const arrayOfNumbers = Array.from(String(value), Number);
+  const pwr = arrayOfNumbers.length;
 
-  console.log(arrayOfNumbers);
+  if (pwr === 1) return true;
+
+  const sum = arrayOfNumbers.reduce((acc, ele) => acc + Math.pow(ele, pwr));
+
+  console.log(sum);
 }
 
-narcissistic(12345);
+narcissistic(7);
