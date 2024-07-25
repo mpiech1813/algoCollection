@@ -13,7 +13,11 @@ function narcissistic(value) {
 
   const sum = arrayOfNumbers.reduce((acc, ele) => acc + Math.pow(ele, pwr));
 
-  console.log(sum);
+  if (value === sum) {
+    return true;
+  }
+
+  return false;
 }
 
-narcissistic(7);
+console.log(narcissistic(7));
