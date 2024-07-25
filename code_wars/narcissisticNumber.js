@@ -20,4 +20,10 @@ function narcissistic(value) {
   return false;
 }
 
+console.log(narcissistic(153));
 console.log(narcissistic(7));
+console.log(narcissistic(0));
+console.log(narcissistic(7213));
+console.log(narcissistic(15477));
+console.log(narcissistic(56774));
+console.log(narcissistic(677234));
