@@ -10,5 +10,17 @@
 // if not divisible by 3, check if divisible by 5 and add to sum
 // if not divisible by both, skip
 // return sum
+// C:
 
-function solution(num) {}
+function solution(num) {
+  const numsArr = [3];
+
+  while (numsArr[numsArr.length - 1] < num) {
+    const lastItem = numsArr[numsArr.length - 1];
+    numsArr.push(lastItem + 1);
+  }
+
+  return numsArr;
+}
+
+console.log("array is: ", solution(10));
