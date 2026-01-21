@@ -4,6 +4,11 @@
 // E: num = 10
 // natural numbers : 3, 5, 6, 9
 // sum: 23
-// A:
+// A: build an array from 3 up to num (use enum?)
+// use reducer to going number by number
+// if divisible by 3, add to sum and move on!
+// if not divisible by 3, check if divisible by 5 and add to sum
+// if not divisible by both, skip
+// return sum
 
 function solution(num) {}
